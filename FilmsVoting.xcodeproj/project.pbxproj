@@ -80,10 +80,10 @@
 		8689A55A244CD7ED0010F41E /* FilmsVoting */ = {
 			isa = PBXGroup;
 			children = (
-				860B3D24244CEAFD0053613B /* SupportFiles */,
 				860B3D23244CEAD00053613B /* ViewControllers */,
-				8689A55B244CD7ED0010F41E /* AppDelegate.swift */,
+				860B3D24244CEAFD0053613B /* SupportFiles */,
 				8689A55D244CD7ED0010F41E /* SceneDelegate.swift */,
+				8689A55B244CD7ED0010F41E /* AppDelegate.swift */,
 				8689A56C244CD7F20010F41E /* Info.plist */,
 			);
 			path = FilmsVoting;

@@ -52,7 +52,7 @@
                     <navigationItem key="navigationItem" title="Rooms" id="2Qb-Mg-cnC">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="PvI-Af-pim">
                             <connections>
-                                <segue destination="kbv-ix-P76" kind="presentation" identifier="NewRoom" id="hxE-Oh-sow"/>
+                                <segue destination="Qmo-md-sFo" kind="presentation" identifier="NewRoom" id="Tps-R7-Ovc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -66,7 +66,7 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="101.78571428571428"/>
         </scene>
-        <!--New Room View Controller-->
+        <!--New Room-->
         <scene sceneID="CdO-Uc-Ejh">
             <objects>
                 <viewController id="kbv-ix-P76" customClass="NewRoomViewController" customModule="FilmsVoting" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,84 +75,115 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="cm1-5C-xWV">
-                                <rect key="frame" x="20" y="50" width="374" height="308.5"/>
+                                <rect key="frame" x="20" y="106" width="374" height="319"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="axE-bE-Am6" userLabel="Name">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="69.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="73"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jS1-3L-xAQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hJp-Pd-iO8">
-                                                <rect key="frame" x="0.0" y="35.5" width="374" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hJp-Pd-iO8">
+                                                <rect key="frame" x="0.0" y="39" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NGk-4g-KEC" userLabel="Password">
-                                        <rect key="frame" x="0.0" y="119.5" width="374" height="69.5"/>
+                                        <rect key="frame" x="0.0" y="123" width="374" height="73"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZM-kE-OBc">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obD-Hn-aei">
-                                                <rect key="frame" x="0.0" y="35.5" width="374" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obD-Hn-aei">
+                                                <rect key="frame" x="0.0" y="39" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HYc-6o-Rpx" userLabel="Members">
-                                        <rect key="frame" x="0.0" y="239" width="374" height="69.5"/>
+                                        <rect key="frame" x="0.0" y="246" width="374" height="73"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dg6-V7-aCq">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t1l-DJ-Nwn">
-                                                <rect key="frame" x="0.0" y="35.5" width="374" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Maximum people in room" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t1l-DJ-Nwn">
+                                                <rect key="frame" x="0.0" y="39" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neZ-cD-hbn">
-                                <rect key="frame" x="20" y="752" width="374" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neZ-cD-hbn">
+                                <rect key="frame" x="20" y="749" width="374" height="39"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="22"/>
                                 <state key="normal" title="Create">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="createButtonPressed" destination="kbv-ix-P76" eventType="touchUpInside" id="9Xj-Xb-hkR"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6kL-s1-jzJ">
+                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
+                                <color key="color" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6kL-s1-jzJ" firstAttribute="centerY" secondItem="9hg-YC-U4j" secondAttribute="centerY" id="5ck-cb-pfT"/>
                             <constraint firstItem="neZ-cD-hbn" firstAttribute="bottom" secondItem="tqG-95-vke" secondAttribute="bottom" constant="-20" id="7wd-hq-Nz8"/>
                             <constraint firstItem="neZ-cD-hbn" firstAttribute="leading" secondItem="tqG-95-vke" secondAttribute="leading" constant="20" id="Ca0-kJ-Ozx"/>
+                            <constraint firstItem="neZ-cD-hbn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cm1-5C-xWV" secondAttribute="bottom" constant="10" placeholder="YES" id="Ued-5b-Mu4"/>
                             <constraint firstItem="cm1-5C-xWV" firstAttribute="top" secondItem="tqG-95-vke" secondAttribute="top" constant="50" id="W5n-gU-8Qf"/>
                             <constraint firstItem="cm1-5C-xWV" firstAttribute="leading" secondItem="tqG-95-vke" secondAttribute="leading" constant="20" id="gtq-qa-vzT"/>
+                            <constraint firstItem="6kL-s1-jzJ" firstAttribute="centerX" secondItem="9hg-YC-U4j" secondAttribute="centerX" id="hab-1D-Pzv"/>
                             <constraint firstItem="tqG-95-vke" firstAttribute="trailing" secondItem="neZ-cD-hbn" secondAttribute="trailing" constant="20" id="lhI-cv-jmV"/>
                             <constraint firstItem="tqG-95-vke" firstAttribute="trailing" secondItem="cm1-5C-xWV" secondAttribute="trailing" constant="20" id="yh4-UO-E0N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tqG-95-vke"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Room" id="Sen-Ch-GN2"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="6kL-s1-jzJ" id="zwt-6M-hTP"/>
                         <outlet property="createButton" destination="neZ-cD-hbn" id="bwa-1e-gVP"/>
+                        <outlet property="maxMembersTextField" destination="t1l-DJ-Nwn" id="TG3-Tz-GNq"/>
+                        <outlet property="nameTextField" destination="hJp-Pd-iO8" id="TNo-ip-msd"/>
+                        <outlet property="passwordTextField" destination="obD-Hn-aei" id="iEP-Wa-f5D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWl-9n-jwI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="102"/>
+            <point key="canvasLocation" x="1016" y="102"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gSc-U9-cdb">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RZb-Pg-lpr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="Qmo-md-sFo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iVQ-pJ-Z49">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kbv-ix-P76" kind="relationship" relationship="rootViewController" id="LXn-yH-M9J"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1016" y="-583"/>
         </scene>
     </scenes>
     <resources>
