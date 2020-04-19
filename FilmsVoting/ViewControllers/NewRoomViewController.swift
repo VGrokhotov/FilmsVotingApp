@@ -179,13 +179,15 @@ extension NewRoomViewController{
     
     @objc func keyboardWillShow(notification: NSNotification) {
         createButton.isHidden = true
-    
-        if maxMembersTextField.isEditing && !isKeyboardShown{
+        if !isKeyboardShown{
             isKeyboardShown = true
-            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-                
-                if self.view.frame.origin.y == 0 {
-                    self.view.frame.origin.y -= keyboardSize.height
+            if maxMembersTextField.isEditing {
+                if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                    
+                    if self.view.frame.origin.y == 0 {
+                        self.view.frame.origin.y -= keyboardSize.height
+                    }
+                    
                 }
                 
             }
