@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8665A431244CDDB500009E08 /* NewRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8665A430244CDDB500009E08 /* NewRoomViewController.swift */; };
 		8689A55C244CD7ED0010F41E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8689A55B244CD7ED0010F41E /* AppDelegate.swift */; };
 		8689A55E244CD7ED0010F41E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8689A55D244CD7ED0010F41E /* SceneDelegate.swift */; };
-		8689A560244CD7ED0010F41E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8689A55F244CD7ED0010F41E /* ViewController.swift */; };
+		8689A560244CD7ED0010F41E /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8689A55F244CD7ED0010F41E /* RoomsViewController.swift */; };
 		8689A563244CD7ED0010F41E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8689A561244CD7ED0010F41E /* Main.storyboard */; };
 		8689A566244CD7ED0010F41E /* FilmsVoting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8689A564244CD7ED0010F41E /* FilmsVoting.xcdatamodeld */; };
 		8689A568244CD7F20010F41E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8689A567244CD7F20010F41E /* Assets.xcassets */; };
@@ -17,10 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8665A430244CDDB500009E08 /* NewRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoomViewController.swift; sourceTree = "<group>"; };
 		8689A558244CD7ED0010F41E /* FilmsVoting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmsVoting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8689A55B244CD7ED0010F41E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8689A55D244CD7ED0010F41E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8689A55F244CD7ED0010F41E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8689A55F244CD7ED0010F41E /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		8689A562244CD7ED0010F41E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8689A565244CD7ED0010F41E /* FilmsVoting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FilmsVoting.xcdatamodel; sourceTree = "<group>"; };
 		8689A567244CD7F20010F41E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,6 +41,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		860B3D23244CEAD00053613B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8665A430244CDDB500009E08 /* NewRoomViewController.swift */,
+				8689A55F244CD7ED0010F41E /* RoomsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		860B3D24244CEAFD0053613B /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8689A561244CD7ED0010F41E /* Main.storyboard */,
+				8689A567244CD7F20010F41E /* Assets.xcassets */,
+				8689A569244CD7F20010F41E /* LaunchScreen.storyboard */,
+				8689A564244CD7ED0010F41E /* FilmsVoting.xcdatamodeld */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
 		8689A54F244CD7ED0010F41E = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +80,11 @@
 		8689A55A244CD7ED0010F41E /* FilmsVoting */ = {
 			isa = PBXGroup;
 			children = (
+				860B3D24244CEAFD0053613B /* SupportFiles */,
+				860B3D23244CEAD00053613B /* ViewControllers */,
 				8689A55B244CD7ED0010F41E /* AppDelegate.swift */,
 				8689A55D244CD7ED0010F41E /* SceneDelegate.swift */,
-				8689A55F244CD7ED0010F41E /* ViewController.swift */,
-				8689A561244CD7ED0010F41E /* Main.storyboard */,
-				8689A567244CD7F20010F41E /* Assets.xcassets */,
-				8689A569244CD7F20010F41E /* LaunchScreen.storyboard */,
 				8689A56C244CD7F20010F41E /* Info.plist */,
-				8689A564244CD7ED0010F41E /* FilmsVoting.xcdatamodeld */,
 			);
 			path = FilmsVoting;
 			sourceTree = "<group>";
@@ -141,7 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8689A560244CD7ED0010F41E /* ViewController.swift in Sources */,
+				8665A431244CDDB500009E08 /* NewRoomViewController.swift in Sources */,
+				8689A560244CD7ED0010F41E /* RoomsViewController.swift in Sources */,
 				8689A55C244CD7ED0010F41E /* AppDelegate.swift in Sources */,
 				8689A566244CD7ED0010F41E /* FilmsVoting.xcdatamodeld in Sources */,
 				8689A55E244CD7ED0010F41E /* SceneDelegate.swift in Sources */,
