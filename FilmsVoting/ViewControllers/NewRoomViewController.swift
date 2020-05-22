@@ -10,8 +10,8 @@ import UIKit
 
 class NewRoomViewController: UIViewController {
     
-    var comletion = {}
     private var isKeyboardShown = false
+    let roomsService: RoomStorage = RoomService()
     
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -28,10 +28,23 @@ class NewRoomViewController: UIViewController {
         
         disable(views: nameTextField, passwordTextField, maxMembersTextField, createButton)
 
-        //send Post /rooms with completion
-//        let completion = {
-//            self.dismiss(animated: true, completion: self.comletion)
-//        }
+        guard
+            let password = passwordTextField.text,
+            let name = nameTextField.text,
+            let maxMembersStr = maxMembersTextField.text,
+            let _ = Int(maxMembersStr)
+        else { return }
+        
+        //fix creator id
+        let newRoom = Room(users: [], id: nil, isVotingAvailable: true, password: password, name: name, creatorID: UUID(uuidString: "123e4567-e89b-12d3-a456-426655441111")!)
+        
+        roomsService.create(room: newRoom, errorCompletion: { [ weak self] (message) in
+            self?.activityIndicator.stopAnimating()
+            self?.badURLAlert(message: message)
+        }) { [weak self] in
+            self?.activityIndicator.stopAnimating()
+            self?.successAlert()
+        }
     }
     
     
@@ -90,18 +103,33 @@ class NewRoomViewController: UIViewController {
             view.alpha = 1
         }
     }
+    
+    // MARK: Alerts
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func badURLAlert(message: String){
+        
+        let allert = UIAlertController(title: "Error occurred", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
+        }
+        
+        allert.addAction(okAction)
+        present(allert, animated: true)
     }
-    */
-
+    
+    func successAlert(){
+        
+        let allert = UIAlertController(title: "Success", message: "New room created successfully!", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
+        }
+        
+        allert.addAction(okAction)
+        present(allert, animated: true)
+    }
 }
+
+
 
 // MARK: - Text field delegate
 
