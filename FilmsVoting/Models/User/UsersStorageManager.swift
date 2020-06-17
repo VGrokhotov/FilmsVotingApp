@@ -66,11 +66,11 @@ class UsersStorageManager: UsersDataManager {
     
     func getUser() -> User? {
         
-        container.loadPersistentStores { (_, error) in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
-            }
-        }
+//        container.loadPersistentStores { (_, error) in
+//            if let error = error {
+//                assertionFailure(error.localizedDescription)
+//            }
+//        }
         
         guard let allUsers = try? container.viewContext.fetch(self.fetchRequest) else { return nil }
             

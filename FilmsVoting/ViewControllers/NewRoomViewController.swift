@@ -11,7 +11,6 @@ import UIKit
 class NewRoomViewController: UIViewController {
     
     private var isKeyboardShown = false
-    let roomsService: RoomStorage = RoomService()
     
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -38,7 +37,7 @@ class NewRoomViewController: UIViewController {
         //fix creator id
         let newRoom = Room(users: [], id: nil, isVotingAvailable: true, password: password, name: name, creatorID: UUID(uuidString: "123e4567-e89b-12d3-a456-426655441111")!)
         
-        roomsService.create(room: newRoom, errorCompletion: { [ weak self] (message) in
+        RoomsService.shared.create(room: newRoom, errorCompletion: { [ weak self] (message) in
             self?.activityIndicator.stopAnimating()
             self?.badURLAlert(message: message)
         }) { [weak self] in

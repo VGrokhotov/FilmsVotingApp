@@ -12,8 +12,6 @@ class RoomsViewController: UIViewController {
     
     var authorized = true // заглушка
     
-    private let roomsService: RoomStorage = RoomService()
-    
     private var rooms: [Room] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -27,7 +25,7 @@ class RoomsViewController: UIViewController {
             isNotAuthorized()
         } else {
             activityIndicator.startAnimating()
-            roomsService.getRooms(errorCompletion: { [ weak self] (message) in
+            RoomsService.shared.getRooms(errorCompletion: { [ weak self] (message) in
                 self?.activityIndicator.stopAnimating()
                 self?.badURLAlert(message: message)
             }) { [ weak self ] (rooms) in
@@ -90,9 +88,7 @@ class RoomsViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewRoom" {
-//            let newRoom = segue.destination as? NewRoomViewController
             
-//            newRoom?.roomsService = roomsService
         }
     }
 

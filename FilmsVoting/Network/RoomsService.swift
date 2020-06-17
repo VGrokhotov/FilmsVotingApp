@@ -1,5 +1,5 @@
 //
-//  RoomService.swift
+//  RoomsService.swift
 //  FilmsVoting
 //
 //  Created by Владислав on 21.05.2020.
@@ -8,12 +8,10 @@
 
 import UIKit
 
-protocol RoomStorage {
-    func getRooms(errorCompletion: @escaping (String) -> (), completion: @escaping ([Room]) -> ())
-    func create(room: Room, errorCompletion: @escaping (String) -> (), completion: @escaping () -> ())
-}
-
-class RoomService: RoomStorage {
+class RoomsService {
+    
+    public static let shared = RoomsService() // создаем Синглтон
+    private init() {}
     
     let urlString = "https://filmsvotingv2.herokuapp.com/rooms/"
     

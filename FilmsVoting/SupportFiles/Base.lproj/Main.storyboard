@@ -55,6 +55,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Rooms" id="2Qb-Mg-cnC">
+                        <barButtonItem key="leftBarButtonItem" image="person.fill" catalog="system" id="B5a-f6-1mM">
+                            <connections>
+                                <segue destination="B68-93-qMF" kind="show" id="SBV-zt-38g"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="PvI-Af-pim">
                             <connections>
                                 <segue destination="Qmo-md-sFo" kind="presentation" identifier="NewRoom" id="Tps-R7-Ovc"/>
@@ -175,6 +180,110 @@
             </objects>
             <point key="canvasLocation" x="1016" y="102"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="lSi-bm-PBv">
+            <objects>
+                <viewController id="0B8-N6-wqK" customClass="ProfileViewController" customModule="FilmsVoting" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oB3-x2-aha">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OfS-ap-XsV">
+                                <rect key="frame" x="20" y="803" width="374" height="39"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="22"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="logInButtonPressed:" destination="0B8-N6-wqK" eventType="touchUpInside" id="JeA-AH-gzj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqU-yi-RKh">
+                                <rect key="frame" x="20" y="744" width="374" height="39"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="22"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="signInButtonPressed:" destination="0B8-N6-wqK" eventType="touchUpInside" id="t2G-at-rIo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JY2-fk-AZQ">
+                                <rect key="frame" x="20" y="803" width="374" height="39"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="22"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOutButtonPressed:" destination="0B8-N6-wqK" eventType="touchUpInside" id="M53-G0-E09"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjj-ug-eSf">
+                                <rect key="frame" x="30" y="118" width="109.5" height="28"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tuk-Ji-msr">
+                                <rect key="frame" x="30" y="166" width="364" height="28"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your login:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6f8-DR-bxq">
+                                <rect key="frame" x="30" y="234" width="102.5" height="28"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBB-nG-8q8">
+                                <rect key="frame" x="30" y="282" width="364" height="28"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6f8-DR-bxq" firstAttribute="leading" secondItem="zln-Jj-tno" secondAttribute="leading" constant="30" id="0Ii-Oo-53F"/>
+                            <constraint firstItem="DBB-nG-8q8" firstAttribute="leading" secondItem="zln-Jj-tno" secondAttribute="leading" constant="30" id="3wR-Vy-hke"/>
+                            <constraint firstItem="zln-Jj-tno" firstAttribute="trailing" secondItem="DBB-nG-8q8" secondAttribute="trailing" constant="20" id="6s0-0F-1i4"/>
+                            <constraint firstItem="Gjj-ug-eSf" firstAttribute="leading" secondItem="zln-Jj-tno" secondAttribute="leading" constant="30" id="DZF-ZN-dn9"/>
+                            <constraint firstItem="zln-Jj-tno" firstAttribute="trailing" secondItem="JY2-fk-AZQ" secondAttribute="trailing" constant="20" id="Drs-XX-Bfe"/>
+                            <constraint firstItem="zln-Jj-tno" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6f8-DR-bxq" secondAttribute="trailing" constant="20" id="EWF-IN-5Nc"/>
+                            <constraint firstItem="JY2-fk-AZQ" firstAttribute="leading" secondItem="zln-Jj-tno" secondAttribute="leading" constant="20" id="Jx1-Kf-O47"/>
+                            <constraint firstItem="Gjj-ug-eSf" firstAttribute="top" secondItem="zln-Jj-tno" secondAttribute="top" constant="30" id="OCO-WP-HmC"/>
+                            <constraint firstItem="zln-Jj-tno" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gjj-ug-eSf" secondAttribute="trailing" constant="20" id="PoO-Q1-RTN"/>
+                            <constraint firstItem="OfS-ap-XsV" firstAttribute="top" secondItem="TqU-yi-RKh" secondAttribute="bottom" constant="20" id="T0N-Vr-C5G"/>
+                            <constraint firstItem="6f8-DR-bxq" firstAttribute="top" secondItem="Tuk-Ji-msr" secondAttribute="bottom" constant="40" id="TFL-hl-v6F"/>
+                            <constraint firstItem="TqU-yi-RKh" firstAttribute="leading" secondItem="zln-Jj-tno" secondAttribute="leading" constant="20" id="Ufs-NX-zuw"/>
+                            <constraint firstItem="zln-Jj-tno" firstAttribute="trailing" secondItem="TqU-yi-RKh" secondAttribute="trailing" constant="20" id="V2Y-Si-IeQ"/>
+                            <constraint firstItem="zln-Jj-tno" firstAttribute="bottom" secondItem="JY2-fk-AZQ" secondAttribute="bottom" constant="20" id="ZaH-UN-hXK"/>
+                            <constraint firstItem="zln-Jj-tno" firstAttribute="bottom" secondItem="OfS-ap-XsV" secondAttribute="bottom" constant="20" id="ZvS-LN-vh0"/>
+                            <constraint firstItem="OfS-ap-XsV" firstAttribute="leading" secondItem="zln-Jj-tno" secondAttribute="leading" constant="20" id="dfn-Jf-bEt"/>
+                            <constraint firstItem="zln-Jj-tno" firstAttribute="trailing" secondItem="Tuk-Ji-msr" secondAttribute="trailing" constant="20" id="fxm-6h-vet"/>
+                            <constraint firstItem="Tuk-Ji-msr" firstAttribute="leading" secondItem="zln-Jj-tno" secondAttribute="leading" constant="30" id="jeU-Ad-p1R"/>
+                            <constraint firstItem="DBB-nG-8q8" firstAttribute="top" secondItem="6f8-DR-bxq" secondAttribute="bottom" constant="20" id="lyx-EE-4kU"/>
+                            <constraint firstItem="Tuk-Ji-msr" firstAttribute="top" secondItem="Gjj-ug-eSf" secondAttribute="bottom" constant="20" id="onI-kU-TNz"/>
+                            <constraint firstItem="zln-Jj-tno" firstAttribute="trailing" secondItem="OfS-ap-XsV" secondAttribute="trailing" constant="20" id="yVK-Wt-IwY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zln-Jj-tno"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="Ccq-yB-vtT"/>
+                    <connections>
+                        <outlet property="logInButton" destination="OfS-ap-XsV" id="35z-9V-VkE"/>
+                        <outlet property="logOutButton" destination="JY2-fk-AZQ" id="bdM-VJ-bjX"/>
+                        <outlet property="loginField" destination="DBB-nG-8q8" id="5H7-qy-Ftf"/>
+                        <outlet property="loginLabel" destination="6f8-DR-bxq" id="wlG-IS-y68"/>
+                        <outlet property="nameField" destination="Tuk-Ji-msr" id="hnp-91-eLS"/>
+                        <outlet property="nameLabel" destination="Gjj-ug-eSf" id="SZO-qd-DN2"/>
+                        <outlet property="signInButton" destination="TqU-yi-RKh" id="175-to-41K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vyx-2a-GXx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1776" y="97"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gSc-U9-cdb">
             <objects>
@@ -191,8 +300,26 @@
             </objects>
             <point key="canvasLocation" x="1016" y="-583"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4ZX-W6-Ztl">
+            <objects>
+                <navigationController id="B68-93-qMF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Ad9-4e-Si1"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FNw-l0-QL1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0B8-N6-wqK" kind="relationship" relationship="rootViewController" id="ve1-HE-LfF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wpE-0v-xWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1788" y="-583"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>
