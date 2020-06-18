@@ -14,12 +14,13 @@ class UsersService {
     private init() {}
     
     private let urlString = "https://filmsvotingv2.herokuapp.com/users/"
+    private let loginURLPart = "login/"
     
     //MARK: GET
     
     func getUserByLoginWithPassword(login: String, password: String, errorCompletion: @escaping (String) -> (), completion: @escaping (User) -> ()) {
 
-        let url = URL(string: urlString)
+        let url = URL(string: urlString + loginURLPart + login)
 
         if let url = url {
 
