@@ -196,6 +196,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logInButtonPressed:" destination="0B8-N6-wqK" eventType="touchUpInside" id="JeA-AH-gzj"/>
+                                    <segue destination="lPc-yH-V7a" kind="show" identifier="LogIn" id="VgG-Aa-qnd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqU-yi-RKh">
@@ -206,7 +207,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signInButtonPressed:" destination="0B8-N6-wqK" eventType="touchUpInside" id="t2G-at-rIo"/>
-                                    <segue destination="QzF-KL-4Bu" kind="show" id="CTl-U6-DNr"/>
+                                    <segue destination="QzF-KL-4Bu" kind="show" identifier="SignIn" id="CTl-U6-DNr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JY2-fk-AZQ">
@@ -388,6 +389,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WlC-I8-fEz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2593" y="96"/>
+        </scene>
+        <!--Log In-->
+        <scene sceneID="Jyt-28-4Nx">
+            <objects>
+                <viewController id="lPc-yH-V7a" customClass="LogInViewController" customModule="FilmsVoting" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9u7-8n-ucy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="fJB-sn-gfs">
+                                <rect key="frame" x="20" y="138" width="374" height="175"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wf2-FS-t2X" userLabel="Login">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="73"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgP-WZ-usD">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L0N-gO-uHD">
+                                                <rect key="frame" x="0.0" y="39" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FKA-M8-ShB" userLabel="Password">
+                                        <rect key="frame" x="0.0" y="102" width="374" height="73"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stp-ev-czO">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h05-by-bpY">
+                                                <rect key="frame" x="0.0" y="39" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="90O-8n-0Ja">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </activityIndicatorView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSH-GD-j5o">
+                                <rect key="frame" x="20" y="803" width="374" height="39"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="22"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="createButtonPressed" destination="kbv-ix-P76" eventType="touchUpInside" id="k81-uO-nRC"/>
+                                    <action selector="createButtonPressed:" destination="QzF-KL-4Bu" eventType="touchUpInside" id="VOw-T4-Y8r"/>
+                                    <action selector="logInButtonPressed:" destination="lPc-yH-V7a" eventType="touchUpInside" id="0WS-BF-dL0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="90O-8n-0Ja" firstAttribute="centerX" secondItem="9u7-8n-ucy" secondAttribute="centerX" id="2sa-Rl-EpH"/>
+                            <constraint firstItem="5uU-QV-Icp" firstAttribute="trailing" secondItem="fJB-sn-gfs" secondAttribute="trailing" constant="20" id="6HU-Xz-ML1"/>
+                            <constraint firstItem="5uU-QV-Icp" firstAttribute="trailing" secondItem="HSH-GD-j5o" secondAttribute="trailing" constant="20" id="94z-Nj-2fP"/>
+                            <constraint firstItem="HSH-GD-j5o" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fJB-sn-gfs" secondAttribute="bottom" constant="20" id="VOF-oa-BZp"/>
+                            <constraint firstItem="fJB-sn-gfs" firstAttribute="leading" secondItem="5uU-QV-Icp" secondAttribute="leading" constant="20" id="jRJ-Tl-PLu"/>
+                            <constraint firstItem="90O-8n-0Ja" firstAttribute="centerY" secondItem="9u7-8n-ucy" secondAttribute="centerY" id="rE3-QP-3Ly"/>
+                            <constraint firstItem="HSH-GD-j5o" firstAttribute="leading" secondItem="5uU-QV-Icp" secondAttribute="leading" constant="20" id="rQY-61-70O"/>
+                            <constraint firstItem="fJB-sn-gfs" firstAttribute="top" secondItem="5uU-QV-Icp" secondAttribute="top" constant="50" id="t1Y-0j-ao7"/>
+                            <constraint firstItem="5uU-QV-Icp" firstAttribute="bottom" secondItem="HSH-GD-j5o" secondAttribute="bottom" constant="20" id="ygN-bq-hfo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5uU-QV-Icp"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Log In" id="7ZU-hw-Vbz"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="90O-8n-0Ja" id="FyV-WC-CDB"/>
+                        <outlet property="logInButton" destination="HSH-GD-j5o" id="rmY-6y-pPE"/>
+                        <outlet property="loginTextField" destination="L0N-gO-uHD" id="kYC-HG-QSW"/>
+                        <outlet property="passwordTextField" destination="h05-by-bpY" id="kgG-CE-BQy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qpT-1A-YzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2593" y="794"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4ZX-W6-Ztl">

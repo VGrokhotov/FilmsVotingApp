@@ -21,6 +21,10 @@ protocol UsersDataManager {
 
 class UsersStorageManager: UsersDataManager {
     
+    public static let shared: UsersDataManager = UsersStorageManager() // создаем Синглтон
+    
+    private init(){}
+    
     let fetchRequest = NSFetchRequest<UserObject>(entityName: "UserObject")
     
     private lazy var container: NSPersistentContainer = {

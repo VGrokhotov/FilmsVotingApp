@@ -10,11 +10,10 @@ import Foundation
 
 class UserAuthorization {
     
-    let usersStorageManager: UsersDataManager = UsersStorageManager()
     var user: User?
     
     var isAuthorized: Bool {
-        if let currentUser = usersStorageManager.getUser() {
+        if let currentUser = UsersStorageManager.shared.getUser() {
             user = currentUser
             return true
         }

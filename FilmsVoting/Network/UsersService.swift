@@ -17,14 +17,29 @@ class UsersService {
     
     //MARK: GET
     
-    func getUserByLoginWithPassword(login: String, password: String, errorCompletion: @escaping (String) -> (), completion: @escaping (User?) -> ()) {
+    func getUserByLoginWithPassword(login: String, password: String, errorCompletion: @escaping (String) -> (), completion: @escaping (User) -> ()) {
 
-        let session = URLSession.shared
         let url = URL(string: urlString)
 
         if let url = url {
 
-            let request = URLRequest(url: url)
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let notVerifiedUser = NotVerifiedUser(login: login, password: password)
+            
+            guard let httpBody = try? JSONEncoder().encode(notVerifiedUser)  else {
+                DispatchQueue.main.async {
+                    errorCompletion("Wrong structure of NotVerifiedUser, please, send the sсreenshot of this message to developer")
+                }
+                return
+            }
+            
+            request.httpBody = httpBody
+            
+            let session = URLSession.shared
+            
             let task = session.dataTask(with: request) { (data, response, error) in
 
                 if let error = error {
