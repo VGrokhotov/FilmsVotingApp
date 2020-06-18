@@ -13,7 +13,7 @@ class RoomsService {
     public static let shared = RoomsService() // создаем Синглтон
     private init() {}
     
-    let urlString = "https://filmsvotingv2.herokuapp.com/rooms/"
+    private let urlString = "https://filmsvotingv2.herokuapp.com/rooms/"
     
     //MARK: GET
     

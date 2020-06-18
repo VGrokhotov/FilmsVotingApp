@@ -62,7 +62,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="PvI-Af-pim">
                             <connections>
-                                <segue destination="Qmo-md-sFo" kind="presentation" identifier="NewRoom" id="Tps-R7-Ovc"/>
+                                <segue destination="kbv-ix-P76" kind="show" id="cYK-YA-T5s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -82,11 +82,11 @@
             <objects>
                 <viewController id="kbv-ix-P76" customClass="NewRoomViewController" customModule="FilmsVoting" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9hg-YC-U4j">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="cm1-5C-xWV">
-                                <rect key="frame" x="20" y="106" width="374" height="319"/>
+                                <rect key="frame" x="20" y="138" width="374" height="319"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="axE-bE-Am6" userLabel="Name">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="73"/>
@@ -139,7 +139,7 @@
                                 </subviews>
                             </stackView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neZ-cD-hbn">
-                                <rect key="frame" x="20" y="749" width="374" height="39"/>
+                                <rect key="frame" x="20" y="754" width="374" height="39"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="22"/>
                                 <state key="normal" title="Create">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -149,7 +149,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6kL-s1-jzJ">
-                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                                 <color key="color" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </activityIndicatorView>
                         </subviews>
@@ -206,6 +206,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signInButtonPressed:" destination="0B8-N6-wqK" eventType="touchUpInside" id="t2G-at-rIo"/>
+                                    <segue destination="QzF-KL-4Bu" kind="show" id="CTl-U6-DNr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JY2-fk-AZQ">
@@ -284,21 +285,109 @@
             </objects>
             <point key="canvasLocation" x="1776" y="97"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gSc-U9-cdb">
+        <!--Sign In-->
+        <scene sceneID="tkZ-Nt-zgf">
             <objects>
-                <navigationController id="Qmo-md-sFo" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iVQ-pJ-Z49">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
+                <viewController id="QzF-KL-4Bu" customClass="NewUserViewController" customModule="FilmsVoting" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B8o-V4-dM1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="JmD-Z3-wNf">
+                                <rect key="frame" x="20" y="138" width="374" height="319"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="U2I-Eu-JVh" userLabel="Login">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="73"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSR-is-Kdc">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DEx-jd-zjY">
+                                                <rect key="frame" x="0.0" y="39" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="A66-UH-Z1i" userLabel="Password">
+                                        <rect key="frame" x="0.0" y="123" width="374" height="73"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rp-Hm-dxt">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLo-vG-WkX">
+                                                <rect key="frame" x="0.0" y="39" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="n89-Uv-4Rt" userLabel="Name">
+                                        <rect key="frame" x="0.0" y="246" width="374" height="73"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fc-aY-P6W">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WbB-sG-SnS">
+                                                <rect key="frame" x="0.0" y="39" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6h-di-S5J">
+                                <rect key="frame" x="20" y="803" width="374" height="39"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="22"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="createButtonPressed" destination="kbv-ix-P76" eventType="touchUpInside" id="P4u-PS-ULC"/>
+                                    <action selector="createButtonPressed:" destination="QzF-KL-4Bu" eventType="touchUpInside" id="XQW-s4-480"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cAf-Kn-VGr">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sUl-YM-nSx" firstAttribute="bottom" secondItem="o6h-di-S5J" secondAttribute="bottom" constant="20" id="8bq-nj-E7j"/>
+                            <constraint firstItem="o6h-di-S5J" firstAttribute="top" relation="greaterThanOrEqual" secondItem="JmD-Z3-wNf" secondAttribute="bottom" constant="10" id="BWh-Zx-8mW"/>
+                            <constraint firstItem="sUl-YM-nSx" firstAttribute="trailing" secondItem="JmD-Z3-wNf" secondAttribute="trailing" constant="20" id="Df2-9d-aSm"/>
+                            <constraint firstItem="o6h-di-S5J" firstAttribute="leading" secondItem="sUl-YM-nSx" secondAttribute="leading" constant="20" id="Jyt-xd-fxW"/>
+                            <constraint firstItem="cAf-Kn-VGr" firstAttribute="centerY" secondItem="B8o-V4-dM1" secondAttribute="centerY" id="NSO-fg-Q1h"/>
+                            <constraint firstItem="sUl-YM-nSx" firstAttribute="trailing" secondItem="o6h-di-S5J" secondAttribute="trailing" constant="20" id="aZ8-4I-40x"/>
+                            <constraint firstItem="JmD-Z3-wNf" firstAttribute="leading" secondItem="sUl-YM-nSx" secondAttribute="leading" constant="20" id="gB6-dj-dyj"/>
+                            <constraint firstItem="cAf-Kn-VGr" firstAttribute="centerX" secondItem="B8o-V4-dM1" secondAttribute="centerX" id="kWv-xq-Xr8"/>
+                            <constraint firstItem="JmD-Z3-wNf" firstAttribute="top" secondItem="sUl-YM-nSx" secondAttribute="top" constant="50" id="szn-DW-8es"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sUl-YM-nSx"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sign In" id="ly2-Fj-YuU"/>
                     <connections>
-                        <segue destination="kbv-ix-P76" kind="relationship" relationship="rootViewController" id="LXn-yH-M9J"/>
+                        <outlet property="activityIndicator" destination="cAf-Kn-VGr" id="56I-zM-Vfi"/>
+                        <outlet property="createButton" destination="o6h-di-S5J" id="eTq-7c-ybh"/>
+                        <outlet property="loginTextField" destination="DEx-jd-zjY" id="9Dq-p1-aIP"/>
+                        <outlet property="nameTextField" destination="WbB-sG-SnS" id="ROH-E2-EhG"/>
+                        <outlet property="passwordTextField" destination="gLo-vG-WkX" id="4X8-hI-We3"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RZb-Pg-lpr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WlC-I8-fEz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1016" y="-583"/>
+            <point key="canvasLocation" x="2593" y="96"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4ZX-W6-Ztl">

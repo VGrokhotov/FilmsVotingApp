@@ -9,7 +9,7 @@
 import Foundation
 
 struct User: Codable {
-    let id: UUID
+    let id: UUID?
     let password: String
     let name: String
     let login: String

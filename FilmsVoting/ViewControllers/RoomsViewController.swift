@@ -43,6 +43,7 @@ class RoomsViewController: UIViewController {
                
         tableView.register(UINib(nibName: String(describing: RoomCell.self), bundle: Bundle.main), forCellReuseIdentifier: String(describing: RoomCell.self))
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     func isNotAuthorized(){

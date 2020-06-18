@@ -34,6 +34,8 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         if UserAuthorization.shared.isAuthorized {
             authorized()
         } else {

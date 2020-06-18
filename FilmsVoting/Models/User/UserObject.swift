@@ -14,7 +14,7 @@ class UserObject: NSManagedObject {
     
     @NSManaged public var password: String
     @NSManaged public var name: String
-    @NSManaged public var id: UUID
+    @NSManaged public var id: UUID?
     @NSManaged public var login: String
 
         

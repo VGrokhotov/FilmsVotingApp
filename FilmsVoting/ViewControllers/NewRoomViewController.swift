@@ -109,7 +109,7 @@ class NewRoomViewController: UIViewController {
         
         let allert = UIAlertController(title: "Error occurred", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-            self?.dismiss(animated: true, completion: nil)
+            self?.navigationController?.popViewController(animated: true)
         }
         
         allert.addAction(okAction)
@@ -120,7 +120,7 @@ class NewRoomViewController: UIViewController {
         
         let allert = UIAlertController(title: "Success", message: "New room created successfully!", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-            self?.dismiss(animated: true, completion: nil)
+            self?.navigationController?.popViewController(animated: true)
         }
         
         allert.addAction(okAction)

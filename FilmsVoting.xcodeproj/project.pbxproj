@@ -26,6 +26,7 @@
 		86A119DD2496B01200093121 /* UserAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A119DC2496B01200093121 /* UserAuthorization.swift */; };
 		86C36CBF249AB1A60011916B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C36CBE249AB1A60011916B /* ProfileViewController.swift */; };
 		86C40494249ADA0000D11C42 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40493249ADA0000D11C42 /* NewUserViewController.swift */; };
+		86C40496249AEB2100D11C42 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40495249AEB2100D11C42 /* UsersService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		86A119DC2496B01200093121 /* UserAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthorization.swift; sourceTree = "<group>"; };
 		86C36CBE249AB1A60011916B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		86C40493249ADA0000D11C42 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		86C40495249AEB2100D11C42 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			children = (
 				863CABA024524EF0007241CE /* RoomsSocket.swift */,
 				869AB4442476CF9A00BCC1DD /* RoomsService.swift */,
+				86C40495249AEB2100D11C42 /* UsersService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				863CABA124524EF0007241CE /* RoomsSocket.swift in Sources */,
 				865C63952496B36C0068A395 /* User.swift in Sources */,
 				8689A566244CD7ED0010F41E /* FilmsVoting.xcdatamodeld in Sources */,
+				86C40496249AEB2100D11C42 /* UsersService.swift in Sources */,
 				86430A05247723C8006FBE74 /* RoomCell.swift in Sources */,
 				865C63972496B5220068A395 /* UsersStorageManager.swift in Sources */,
 				8689A55E244CD7ED0010F41E /* SceneDelegate.swift in Sources */,
