@@ -33,11 +33,11 @@ class UsersService {
                     }
                 } else if let data = data {
 
-                    let response = try? JSONDecoder().decode(User.self, from: data)
-                    if let response = response {
+                    let user = try? JSONDecoder().decode(User.self, from: data)
+                    if let user = user {
 
                         DispatchQueue.main.async {
-                            completion(response)
+                            completion(user)
                         }
                     }
                 }

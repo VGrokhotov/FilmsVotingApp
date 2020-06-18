@@ -33,11 +33,11 @@ class RoomsService {
                     }
                 } else if let data = data {
 
-                    let response = try? JSONDecoder().decode([Room].self, from: data)
-                    if let response = response {
+                    let rooms = try? JSONDecoder().decode([Room].self, from: data)
+                    if let rooms = rooms {
                         
                         DispatchQueue.main.async {
-                            completion(response)
+                            completion(rooms)
                         }
                     }
                 }
