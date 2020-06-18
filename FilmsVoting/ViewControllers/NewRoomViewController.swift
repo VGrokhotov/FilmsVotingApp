@@ -76,6 +76,12 @@ class NewRoomViewController: UIViewController {
         }
     }
     
+    func activate(views: UIControl...) {
+        for view in views {
+            view.isEnabled = true
+        }
+    }
+    
     func configurate(button: UIButton) {
         button.layer.cornerRadius = 10
         button.layer.borderWidth = 2.0
@@ -107,10 +113,10 @@ class NewRoomViewController: UIViewController {
 
     func badURLAlert(message: String){
         
+        activate(views: nameTextField, passwordTextField, maxMembersTextField, createButton)
+        
         let allert = UIAlertController(title: "Error occurred", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-            self?.navigationController?.popViewController(animated: true)
-        }
+        let okAction = UIAlertAction(title: "OK", style: .default)
         
         allert.addAction(okAction)
         present(allert, animated: true)

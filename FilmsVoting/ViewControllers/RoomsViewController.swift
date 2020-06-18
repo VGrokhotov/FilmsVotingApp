@@ -77,8 +77,16 @@ class RoomsViewController: UIViewController {
     
     func badURLAlert(message: String){
         
-        let allert = UIAlertController(title: "Error occurred", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+        let allert = UIAlertController(title: "Error occurred", message: message + " Press OK to retry.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            RoomsService.shared.getRooms(errorCompletion: { [ weak self] (message) in
+                self?.activityIndicator.stopAnimating()
+                self?.badURLAlert(message: message)
+            }) { [ weak self ] (rooms) in
+                self?.activityIndicator.stopAnimating()
+                self?.rooms = rooms
+                self?.tableView.reloadData()
+            }
         }
         
         allert.addAction(okAction)

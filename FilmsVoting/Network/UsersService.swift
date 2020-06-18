@@ -17,38 +17,38 @@ class UsersService {
     
     //MARK: GET
     
-//    func getRooms(errorCompletion: @escaping (String) -> (), completion: @escaping ([Room]) -> ()) {
-//
-//        let session = URLSession.shared
-//        let url = URL(string: urlString)
-//
-//        if let url = url {
-//
-//            let request = URLRequest(url: url)
-//            let task = session.dataTask(with: request) { (data, response, error) in
-//
-//                if let error = error {
-//                    DispatchQueue.main.async {
-//                        errorCompletion(error.localizedDescription)
-//                    }
-//                } else if let data = data {
-//
-//                    let response = try? JSONDecoder().decode([Room].self, from: data)
-//                    if let response = response {
-//
-//                        DispatchQueue.main.async {
-//                            completion(response)
-//                        }
-//                    }
-//                }
-//            }
-//            task.resume()
-//        } else {
-//            DispatchQueue.main.async {
-//                errorCompletion("Wrong URL of Rooms source, please, send the sсreenshot of this message to developer")
-//            }
-//        }
-//    }
+    func getUserByLoginWithPassword(login: String, password: String, errorCompletion: @escaping (String) -> (), completion: @escaping (User?) -> ()) {
+
+        let session = URLSession.shared
+        let url = URL(string: urlString)
+
+        if let url = url {
+
+            let request = URLRequest(url: url)
+            let task = session.dataTask(with: request) { (data, response, error) in
+
+                if let error = error {
+                    DispatchQueue.main.async {
+                        errorCompletion(error.localizedDescription)
+                    }
+                } else if let data = data {
+
+                    let response = try? JSONDecoder().decode(User.self, from: data)
+                    if let response = response {
+
+                        DispatchQueue.main.async {
+                            completion(response)
+                        }
+                    }
+                }
+            }
+            task.resume()
+        } else {
+            DispatchQueue.main.async {
+                errorCompletion("Wrong URL of Users source, please, send the sсreenshot of this message to developer")
+            }
+        }
+    }
 //
 //    func deleteUser(withID: String) {
 //        //
