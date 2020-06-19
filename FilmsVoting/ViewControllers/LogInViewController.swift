@@ -130,6 +130,8 @@ extension LogInViewController: UITextFieldDelegate{
         
         if areFieldsEmpty()  {
             hide(view: logInButton)
+        } else {
+            show(view: logInButton)
         }
     }
     

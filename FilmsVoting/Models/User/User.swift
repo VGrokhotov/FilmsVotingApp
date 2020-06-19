@@ -14,8 +14,3 @@ struct User: Codable {
     let name: String
     let login: String
 }
-
-struct NotVerifiedUser: Codable {
-    let login: String
-    let password: String
-}

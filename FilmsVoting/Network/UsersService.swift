@@ -14,31 +14,26 @@ class UsersService {
     private init() {}
     
     private let urlString = "https://filmsvotingv2.herokuapp.com/users/"
-    private let loginURLPart = "login/"
+    
+    private let scheme = "https"
+    private let host = "filmsvotingv2.herokuapp.com"
+    private let loginPath = "/users/login/"
     
     //MARK: GET
     
     func getUserByLoginWithPassword(login: String, password: String, errorCompletion: @escaping (String) -> (), completion: @escaping (User) -> ()) {
-
-        let url = URL(string: urlString + loginURLPart + login)
+        
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = loginPath + login
+        components.queryItems = [ URLQueryItem(name: "password", value: password) ]
+        
+        let url = components.url
 
         if let url = url {
 
-            var request = URLRequest(url: url)
-            request.httpMethod = "GET"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            
-            let notVerifiedUser = NotVerifiedUser(login: login, password: password)
-            
-            guard let httpBody = try? JSONEncoder().encode(notVerifiedUser)  else {
-                DispatchQueue.main.async {
-                    errorCompletion("Wrong structure of NotVerifiedUser, please, send the sсreenshot of this message to developer")
-                }
-                return
-            }
-            
-            request.httpBody = httpBody
-            
+            let request = URLRequest(url: url)
             let session = URLSession.shared
             
             let task = session.dataTask(with: request) { (data, response, error) in
