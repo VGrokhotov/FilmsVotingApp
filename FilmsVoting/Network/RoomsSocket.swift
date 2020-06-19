@@ -65,12 +65,11 @@ class RoomsSocket {
                 case .data(let data):
                     print("Received data: \(data)")
                     
-//                    }
                 @unknown default:
                     debugPrint("Unknown message")
                 }
                 
-                self.receiveData(completion: completion) // рекурсия
+                //self.receiveData(completion: completion) // рекурсия
             }
         }
     }

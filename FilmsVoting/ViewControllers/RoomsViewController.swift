@@ -9,9 +9,7 @@
 import UIKit
 
 class RoomsViewController: UIViewController {
-    
-    var authorized = true // заглушка
-    
+
     private var rooms: [Room] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -20,22 +18,6 @@ class RoomsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if !authorized {
-            isNotAuthorized()
-        } else {
-            activityIndicator.startAnimating()
-            RoomsService.shared.getRooms(errorCompletion: { [ weak self] (message) in
-                self?.activityIndicator.stopAnimating()
-                self?.badURLAlert(message: message)
-            }) { [ weak self ] (rooms) in
-                self?.activityIndicator.stopAnimating()
-                self?.rooms = rooms
-                self?.tableView.reloadData()
-            }
-            
-            self.getData() //запускаем получение данных по сокету
-        }
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -46,20 +28,56 @@ class RoomsViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        checkAuthorization()
+    }
+    
+    deinit {
+        RoomsSocket.shared.disconnectFromWebSocket()
+    }
+    
+    func checkAuthorization() {
+        if UserAuthorization.shared.isAuthorized {
+            isAuthorized()
+        } else {
+            isNotAuthorized()
+        }
+    }
+    
     func isNotAuthorized(){
         tableView.isHidden = true
         newRoomButton.isEnabled = false
         authorizationAlert()
+        
+        RoomsSocket.shared.disconnectFromWebSocket()
+        self.getData() //запускаем получение данных по сокету
+    }
+    
+    func isAuthorized(){
+        tableView.isHidden = false
+        newRoomButton.isEnabled = true
+        
+        activityIndicator.startAnimating()
+        
+        RoomsService.shared.getRooms(errorCompletion: { [ weak self] (message) in
+            self?.activityIndicator.stopAnimating()
+            self?.badURLAlert(message: message)
+        }) { [ weak self ] (rooms) in
+            self?.activityIndicator.stopAnimating()
+            self?.rooms = rooms
+            self?.tableView.reloadData()
+        }
+        
+        RoomsSocket.shared.connectToWebSocket()
+        self.getData() //запускаем получение данных по сокету
     }
     
     private func getData() {
         RoomsSocket.shared.receiveData() { [weak self] (room) in
-            guard
-                let self = self
-            else { return }
-            
-            self.rooms.append(room)
-            self.tableView.reloadData()
+            self?.rooms.append(room)
+            self?.tableView.reloadData()
         }
     }
     
@@ -91,14 +109,6 @@ class RoomsViewController: UIViewController {
         
         allert.addAction(okAction)
         present(allert, animated: true)
-    }
-        
-    //MARK: Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NewRoom" {
-            
-        }
     }
 
 }
