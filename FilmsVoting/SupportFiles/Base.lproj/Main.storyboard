@@ -244,6 +244,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bXb-dI-TVG">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -267,12 +271,15 @@
                             <constraint firstItem="Tuk-Ji-msr" firstAttribute="leading" secondItem="zln-Jj-tno" secondAttribute="leading" constant="30" id="jeU-Ad-p1R"/>
                             <constraint firstItem="DBB-nG-8q8" firstAttribute="top" secondItem="6f8-DR-bxq" secondAttribute="bottom" constant="20" id="lyx-EE-4kU"/>
                             <constraint firstItem="Tuk-Ji-msr" firstAttribute="top" secondItem="Gjj-ug-eSf" secondAttribute="bottom" constant="20" id="onI-kU-TNz"/>
+                            <constraint firstItem="bXb-dI-TVG" firstAttribute="centerY" secondItem="oB3-x2-aha" secondAttribute="centerY" id="qhb-je-1xv"/>
+                            <constraint firstItem="bXb-dI-TVG" firstAttribute="centerX" secondItem="oB3-x2-aha" secondAttribute="centerX" id="vmm-Lj-z8X"/>
                             <constraint firstItem="zln-Jj-tno" firstAttribute="trailing" secondItem="OfS-ap-XsV" secondAttribute="trailing" constant="20" id="yVK-Wt-IwY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zln-Jj-tno"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="Ccq-yB-vtT"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="bXb-dI-TVG" id="QAl-LT-6Yb"/>
                         <outlet property="logInButton" destination="OfS-ap-XsV" id="35z-9V-VkE"/>
                         <outlet property="logOutButton" destination="JY2-fk-AZQ" id="bdM-VJ-bjX"/>
                         <outlet property="loginField" destination="DBB-nG-8q8" id="5H7-qy-Ftf"/>

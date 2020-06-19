@@ -37,7 +37,6 @@ class UsersService {
             let session = URLSession.shared
             
             let task = session.dataTask(with: request) { (data, response, error) in
-
                 if let error = error {
                     DispatchQueue.main.async {
                         errorCompletion(error.localizedDescription)
@@ -46,10 +45,21 @@ class UsersService {
 
                     let user = try? JSONDecoder().decode(User.self, from: data)
                     if let user = user {
-
                         DispatchQueue.main.async {
                             completion(user)
                         }
+                    } else {
+                        let dataError = try? JSONDecoder().decode(Error.self, from: data)
+                        if let dataError = dataError {
+                            DispatchQueue.main.async {
+                                errorCompletion(dataError.reason)
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                errorCompletion("Wrong User data from server, please, send the sсreenshot of this message to developer")
+                            }
+                        }
+                        
                     }
                 }
             }

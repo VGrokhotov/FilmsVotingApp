@@ -40,13 +40,7 @@ class UsersStorageManager: UsersDataManager {
 
     
     func saveUser(user: User, completion: @escaping () -> ()) {
-        
-        container.loadPersistentStores { (_, error) in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
-            }
-        }
-        
+
         container.performBackgroundTask { (context) in
             
             guard let allUsers = try? context.fetch(self.fetchRequest) else { return }
@@ -64,17 +58,14 @@ class UsersStorageManager: UsersDataManager {
             currentUserObject?.password = user.password
             
             try? context.save()
-            completion()
+            
+            DispatchQueue.main.async {
+                completion()
+            }
         }
     }
     
     func getUser() -> User? {
-        
-//        container.loadPersistentStores { (_, error) in
-//            if let error = error {
-//                assertionFailure(error.localizedDescription)
-//            }
-//        }
         
         guard let allUsers = try? container.viewContext.fetch(self.fetchRequest) else { return nil }
             
@@ -82,12 +73,6 @@ class UsersStorageManager: UsersDataManager {
     }
     
     func deleteUser(completion: @escaping () -> ()) {
-        
-        container.loadPersistentStores { (_, error) in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
-            }
-        }
         
         container.performBackgroundTask { (context) in
             
@@ -98,7 +83,10 @@ class UsersStorageManager: UsersDataManager {
             }
             
             try? context.save()
-            completion()
+            
+            DispatchQueue.main.async {
+                completion()
+            }
         }
     }
     

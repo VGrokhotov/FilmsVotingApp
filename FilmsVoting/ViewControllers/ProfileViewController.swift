@@ -17,12 +17,18 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var loginField: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func logInButtonPressed(_ sender: Any) {
     }
     @IBAction func signInButtonPressed(_ sender: Any) {
     }
     @IBAction func logOutButtonPressed(_ sender: Any) {
+        activityIndicator.startAnimating()
+        UsersStorageManager.shared.deleteUser { [weak self] in
+            self?.activityIndicator.stopAnimating()
+            self?.logOutAlert()
+        }
     }
     
     
@@ -36,6 +42,10 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        checkAuthorization()
+    }
+    
+    func checkAuthorization() {
         if UserAuthorization.shared.isAuthorized {
             authorized()
         } else {
@@ -60,32 +70,46 @@ class ProfileViewController: UIViewController {
     }
     
     func notAuthorized() {
-        loginField.text = ""
-        nameField.text = ""
         hide(views: logOutButton, loginField, loginLabel, nameField, nameLabel)
         show(views: logInButton, signInButton)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.loginField.text = ""
+            self.nameField.text = ""
+        }
+    
     }
     
     func hide(views: UIView...) {
         for view in views {
-            view.isHidden = true
+            UIView.animate(withDuration: 0.5, animations: {
+                view.alpha = 0
+            }) { (finished) in
+                view.isHidden = finished
+            }
         }
     }
     
     func show(views: UIView...) {
         for view in views {
+            view.alpha = 0
             view.isHidden = false
+            UIView.animate(withDuration: 0.6) {
+                view.alpha = 1
+            }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    //MARK: Alerts
+    
+    func logOutAlert(){
+        
+        let allert = UIAlertController(title: "Success", message: "You logged out successfully!", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            self?.checkAuthorization()
+        }
+        
+        allert.addAction(okAction)
+        present(allert, animated: true)
     }
-    */
 
 }
