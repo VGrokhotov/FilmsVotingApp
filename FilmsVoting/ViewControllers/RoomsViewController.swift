@@ -49,6 +49,7 @@ class RoomsViewController: UIViewController {
     func isNotAuthorized(){
         tableView.isHidden = true
         newRoomButton.isEnabled = false
+        rooms = []
         authorizationAlert()
         
         RoomsSocket.shared.disconnectFromWebSocket()

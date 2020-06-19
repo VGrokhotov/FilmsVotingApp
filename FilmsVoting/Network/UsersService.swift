@@ -26,14 +26,26 @@ class UsersService {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
-        components.path = loginPath + login
-        components.queryItems = [ URLQueryItem(name: "password", value: password) ]
+        components.path = loginPath
         
         let url = components.url
 
         if let url = url {
 
-            let request = URLRequest(url: url)
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let notVerifiedUser = NotVerifiedUser(login: login, password: password)
+            guard let httpBody = try? JSONEncoder().encode(notVerifiedUser)  else {
+                DispatchQueue.main.async {
+                    errorCompletion("Wrong structure of NotVerifiedUser, please, send the sсreenshot of this message to developer")
+                }
+                return
+            }
+            
+            request.httpBody = httpBody
+            
             let session = URLSession.shared
             
             let task = session.dataTask(with: request) { (data, response, error) in
