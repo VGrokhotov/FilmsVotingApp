@@ -24,6 +24,7 @@
 		8689A568244CD7F20010F41E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8689A567244CD7F20010F41E /* Assets.xcassets */; };
 		8689A56B244CD7F20010F41E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8689A569244CD7F20010F41E /* LaunchScreen.storyboard */; };
 		868AC77D249BF02400B7D860 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868AC77C249BF02400B7D860 /* LogInViewController.swift */; };
+		868E1F47249EB89B0073B5E9 /* RoomEnteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868E1F46249EB89A0073B5E9 /* RoomEnteringViewController.swift */; };
 		869AB4452476CF9A00BCC1DD /* RoomsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869AB4442476CF9A00BCC1DD /* RoomsService.swift */; };
 		86A119DD2496B01200093121 /* UserAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A119DC2496B01200093121 /* UserAuthorization.swift */; };
 		86C36CBF249AB1A60011916B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C36CBE249AB1A60011916B /* ProfileViewController.swift */; };
@@ -51,6 +52,7 @@
 		8689A56A244CD7F20010F41E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8689A56C244CD7F20010F41E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		868AC77C249BF02400B7D860 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		868E1F46249EB89A0073B5E9 /* RoomEnteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomEnteringViewController.swift; sourceTree = "<group>"; };
 		869AB4442476CF9A00BCC1DD /* RoomsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsService.swift; sourceTree = "<group>"; };
 		86A119DC2496B01200093121 /* UserAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthorization.swift; sourceTree = "<group>"; };
 		86C36CBE249AB1A60011916B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -72,11 +74,12 @@
 		860B3D23244CEAD00053613B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8665A430244CDDB500009E08 /* NewRoomViewController.swift */,
-				8689A55F244CD7ED0010F41E /* RoomsViewController.swift */,
 				86C36CBE249AB1A60011916B /* ProfileViewController.swift */,
 				86C40493249ADA0000D11C42 /* NewUserViewController.swift */,
 				868AC77C249BF02400B7D860 /* LogInViewController.swift */,
+				8689A55F244CD7ED0010F41E /* RoomsViewController.swift */,
+				8665A430244CDDB500009E08 /* NewRoomViewController.swift */,
+				868E1F46249EB89A0073B5E9 /* RoomEnteringViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				86C40494249ADA0000D11C42 /* NewUserViewController.swift in Sources */,
 				86C36CBF249AB1A60011916B /* ProfileViewController.swift in Sources */,
 				863CABA124524EF0007241CE /* RoomsSocket.swift in Sources */,
+				868E1F47249EB89B0073B5E9 /* RoomEnteringViewController.swift in Sources */,
 				865C63952496B36C0068A395 /* User.swift in Sources */,
 				8689A566244CD7ED0010F41E /* FilmsVoting.xcdatamodeld in Sources */,
 				86C40496249AEB2100D11C42 /* UsersService.swift in Sources */,

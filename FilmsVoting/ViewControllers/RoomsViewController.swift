@@ -10,7 +10,7 @@ import UIKit
 
 class RoomsViewController: UIViewController {
 
-    private var rooms: [Room] = []
+    private var rooms: [NotVerifiedRoom] = []
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var newRoomButton: UIBarButtonItem!
@@ -126,11 +126,14 @@ extension RoomsViewController: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-//        guard let room = tableView.cellForRow(at: indexPath) else { return }
-//        
-//        let destinationViewController = RoomViewController.makeVC(with: room)
-//        
-//        navigationController?.pushViewController(destinationViewController, animated: true)
+        guard
+            let notVerifiedRoomCell = tableView.cellForRow(at: indexPath) as? RoomCell,
+            let notVerifiedRoom = notVerifiedRoomCell.notVerifiedRoom
+        else { return }
+        
+        let destinationViewController = RoomEnteringViewController.makeVC(with: notVerifiedRoom)
+        
+        navigationController?.pushViewController(destinationViewController, animated: true)
     }
 }
 

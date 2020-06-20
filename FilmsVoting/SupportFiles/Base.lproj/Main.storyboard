@@ -77,6 +77,69 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="101.78571428571428"/>
         </scene>
+        <!--Room Entering View Controller-->
+        <scene sceneID="MdY-VC-uW0">
+            <objects>
+                <viewController storyboardIdentifier="RoomEnteringViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fOG-fM-QBA" customClass="RoomEnteringViewController" customModule="FilmsVoting" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DDO-Nu-L1p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkH-Bj-Y31">
+                                <rect key="frame" x="179" y="333" width="56" height="28"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j4U-kl-NwJ">
+                                <rect key="frame" x="70" y="381" width="274" height="34"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mFc-as-R8F">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </activityIndicatorView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Til-4y-HLb">
+                                <rect key="frame" x="130" y="465" width="154" height="39"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="22"/>
+                                <state key="normal" title="Enter">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="createButtonPressed" destination="kbv-ix-P76" eventType="touchUpInside" id="Fbe-gk-btN"/>
+                                    <action selector="createButtonPressed:" destination="QzF-KL-4Bu" eventType="touchUpInside" id="iMZ-sH-j5M"/>
+                                    <action selector="enterButtonPressed:" destination="fOG-fM-QBA" eventType="touchUpInside" id="U9i-me-EEb"/>
+                                    <action selector="logInButtonPressed:" destination="lPc-yH-V7a" eventType="touchUpInside" id="z6B-rG-ifA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Til-4y-HLb" firstAttribute="leading" secondItem="6NT-lQ-yVH" secondAttribute="leading" constant="130" id="9Ow-Pi-k5n"/>
+                            <constraint firstItem="j4U-kl-NwJ" firstAttribute="centerY" secondItem="DDO-Nu-L1p" secondAttribute="centerY" constant="-50" id="GzN-Yz-jqD"/>
+                            <constraint firstItem="mFc-as-R8F" firstAttribute="centerX" secondItem="DDO-Nu-L1p" secondAttribute="centerX" id="KVe-VZ-YdN"/>
+                            <constraint firstItem="j4U-kl-NwJ" firstAttribute="top" secondItem="HkH-Bj-Y31" secondAttribute="bottom" constant="20" id="Mmt-nz-CIz"/>
+                            <constraint firstItem="Til-4y-HLb" firstAttribute="top" secondItem="j4U-kl-NwJ" secondAttribute="bottom" constant="50" id="Vbf-vV-FsN"/>
+                            <constraint firstItem="6NT-lQ-yVH" firstAttribute="trailing" secondItem="Til-4y-HLb" secondAttribute="trailing" constant="130" id="axG-D8-LWO"/>
+                            <constraint firstItem="j4U-kl-NwJ" firstAttribute="leading" secondItem="6NT-lQ-yVH" secondAttribute="leading" constant="70" id="dqF-3T-MvR"/>
+                            <constraint firstItem="HkH-Bj-Y31" firstAttribute="centerX" secondItem="DDO-Nu-L1p" secondAttribute="centerX" id="eca-0D-z7Y"/>
+                            <constraint firstItem="6NT-lQ-yVH" firstAttribute="trailing" secondItem="j4U-kl-NwJ" secondAttribute="trailing" constant="70" id="ksd-xq-Cji"/>
+                            <constraint firstItem="mFc-as-R8F" firstAttribute="centerY" secondItem="DDO-Nu-L1p" secondAttribute="centerY" id="rs9-0s-ucX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6NT-lQ-yVH"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="mFc-as-R8F" id="0Un-JS-GWE"/>
+                        <outlet property="enterButton" destination="Til-4y-HLb" id="KIm-GM-Q9O"/>
+                        <outlet property="roomNameLabel" destination="HkH-Bj-Y31" id="aBA-6U-WgB"/>
+                        <outlet property="roomPasswordTextField" destination="j4U-kl-NwJ" id="LpT-Mw-0e1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ju-Ff-WtJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008.6956521739131" y="101.78571428571428"/>
+        </scene>
         <!--New Room-->
         <scene sceneID="CdO-Uc-Ejh">
             <objects>
@@ -178,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWl-9n-jwI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1016" y="102"/>
+            <point key="canvasLocation" x="138" y="808"/>
         </scene>
         <!--Profile-->
         <scene sceneID="lSi-bm-PBv">
@@ -291,7 +354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vyx-2a-GXx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1776" y="97"/>
+            <point key="canvasLocation" x="1010" y="-570"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="tkZ-Nt-zgf">
@@ -395,7 +458,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WlC-I8-fEz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2593" y="96"/>
+            <point key="canvasLocation" x="1875" y="-571"/>
         </scene>
         <!--Log In-->
         <scene sceneID="Jyt-28-4Nx">
@@ -483,7 +546,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpT-1A-YzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2593" y="794"/>
+            <point key="canvasLocation" x="2665" y="-571"/>
         </scene>
     </scenes>
     <resources>
