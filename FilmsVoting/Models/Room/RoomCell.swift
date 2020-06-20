@@ -17,7 +17,7 @@ protocol ConfigurableView {
 
 class RoomCell: UITableViewCell {
     
-    var room: Room?
+    var notVerifiedRoom: NotVerifiedRoom?
     @IBOutlet weak var nameLabel: UILabel!
     
     override func awakeFromNib() {
@@ -35,10 +35,10 @@ class RoomCell: UITableViewCell {
 
 extension RoomCell: ConfigurableView {
     
-    typealias ConfigurationModel = Room
+    typealias ConfigurationModel = NotVerifiedRoom
     
-    func configure(with model: Room) {
-        room = model
+    func configure(with model: NotVerifiedRoom) {
+        notVerifiedRoom = model
         nameLabel.text = model.name
     }
     

@@ -40,7 +40,7 @@ class RoomsSocket {
     
     
     //функция получения новой комнаты, с эскейпингом чтобы получить комнату наружу
-    func receiveData(completion: @escaping (Room) -> Void) {
+    func receiveData(completion: @escaping (NotVerifiedRoom) -> Void) {
         
         webSocketTask.receive { result in
             switch result {
@@ -53,7 +53,7 @@ class RoomsSocket {
                     print("Received text: \(text)")
                     
                     if  let data = text.data(using: .utf8) {
-                        let room = try? JSONDecoder().decode(Room.self, from: data)
+                        let room = try? JSONDecoder().decode(NotVerifiedRoom.self, from: data)
                         if let room = room {
                             DispatchQueue.main.async {
                                 completion(room)// отправляем в комплишн то что насобирали в нашу модель

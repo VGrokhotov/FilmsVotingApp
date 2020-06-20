@@ -16,3 +16,13 @@ struct Room: Codable {
     let name: String
     let creatorID: UUID
 }
+
+struct NotVerifiedRoom: Codable {
+    let id: UUID?
+    let name: String
+}
+
+struct AuthorizationRoom: Codable {
+    let id: UUID?
+    let password: String
+}

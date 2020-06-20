@@ -36,10 +36,10 @@ class UsersService {
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
-            let notVerifiedUser = NotVerifiedUser(login: login, password: password)
-            guard let httpBody = try? JSONEncoder().encode(notVerifiedUser)  else {
+            let authorizationUser = AuthorizationUser(login: login, password: password)
+            guard let httpBody = try? JSONEncoder().encode(authorizationUser)  else {
                 DispatchQueue.main.async {
-                    errorCompletion("Wrong structure of NotVerifiedUser, please, send the sсreenshot of this message to developer")
+                    errorCompletion("Wrong structure of AuthorizationUser, please, send the sсreenshot of this message to developer")
                 }
                 return
             }
