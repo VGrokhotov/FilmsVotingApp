@@ -35,7 +35,7 @@ class NewRoomViewController: UIViewController {
         else { return }
         
         //fix creator id
-        let newRoom = Room(users: [], id: nil, isVotingAvailable: true, password: password, name: name, creatorID: UUID(uuidString: "123e4567-e89b-12d3-a456-426655441111")!)
+        let newRoom = Room(users: [], id: nil, isVotingAvailable: true, password: password, name: name, creatorID: UserAuthorization.shared.user!.id!)
         
         RoomsService.shared.create(room: newRoom, errorCompletion: { [ weak self] (message) in
             self?.activityIndicator.stopAnimating()
