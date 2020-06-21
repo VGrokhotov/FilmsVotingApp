@@ -29,16 +29,30 @@ class RoomsSocket {
     
     //отключаемся на сервере
     public func disconnectFromWebSocket(){
-        webSocketTask.resume()
         
         webSocketTask.send(URLSessionWebSocketTask.Message.string("Disconnect")) { (error) in
             if let error = error {
                 print("cannot send message because of \(error.localizedDescription)")
             }
         }
+        
+        webSocketTask.cancel(with: .goingAway, reason: nil)
     }
     
-    
+    func ping() {
+        webSocketTask.sendPing { (error) in
+            if let error = error {
+                print("Ping failed: \(error)")
+            }
+            self.scheduleNextPing()
+        }
+    }
+
+    private func scheduleNextPing() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [weak self] in
+            self?.ping()
+        }
+    }
     //функция получения новой комнаты, с эскейпингом чтобы получить комнату наружу
     func receiveData(completion: @escaping (NotVerifiedRoom) -> Void) {
         
@@ -69,7 +83,7 @@ class RoomsSocket {
                     debugPrint("Unknown message")
                 }
                 
-                //self.receiveData(completion: completion) // рекурсия
+                self.receiveData(completion: completion) // рекурсия
             }
         }
     }

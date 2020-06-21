@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         RoomsSocket.shared.connectToWebSocket() // подключаемся к сокету комнат
+        RoomsSocket.shared.ping()
         return true
     }
 

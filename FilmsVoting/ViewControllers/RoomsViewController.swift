@@ -71,7 +71,6 @@ class RoomsViewController: UIViewController {
             self?.tableView.reloadData()
         }
         
-        RoomsSocket.shared.connectToWebSocket()
         self.getData() //запускаем получение данных по сокету
     }
     
