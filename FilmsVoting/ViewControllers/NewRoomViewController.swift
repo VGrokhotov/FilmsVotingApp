@@ -69,44 +69,8 @@ class NewRoomViewController: UIViewController {
         removeKeyboardNotification()
     }
     
-    
-    func disable(views: UIControl...) {
-        for view in views {
-            view.isEnabled = false
-        }
-    }
-    
-    func activate(views: UIControl...) {
-        for view in views {
-            view.isEnabled = true
-        }
-    }
-    
-    func configurate(button: UIButton) {
-        button.layer.cornerRadius = 10
-        button.layer.borderWidth = 2.0
-        button.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        button.clipsToBounds = true
-    }
-    
     func addTargetTo(textField: UITextField) {
         textField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-    }
-    
-    func hide(view: UIView) {
-        UIView.animate(withDuration: 0.5, animations: {
-            view.alpha = 0
-        }) { (finished) in
-            view.isHidden = finished
-        }
-    }
-    
-    func show(view: UIView) {
-        view.alpha = 0
-        view.isHidden = false
-        UIView.animate(withDuration: 0.6) {
-            view.alpha = 1
-        }
     }
     
     // MARK: Alerts

@@ -11,6 +11,8 @@
 		863CABA524524FAF007241CE /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863CABA424524FAE007241CE /* Room.swift */; };
 		86430A05247723C8006FBE74 /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86430A03247723C8006FBE74 /* RoomCell.swift */; };
 		86430A06247723C8006FBE74 /* RoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86430A04247723C8006FBE74 /* RoomCell.xib */; };
+		864FB597249FF46F009B053D /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FB596249FF46F009B053D /* RoomViewController.swift */; };
+		864FB599249FF5B6009B053D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FB598249FF5B6009B053D /* UIViewControllerExtension.swift */; };
 		865C63932496B2CB0068A395 /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C63922496B2CB0068A395 /* UserObject.swift */; };
 		865C63952496B36C0068A395 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C63942496B36C0068A395 /* User.swift */; };
 		865C63972496B5220068A395 /* UsersStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C63962496B5220068A395 /* UsersStorageManager.swift */; };
@@ -37,6 +39,8 @@
 		863CABA424524FAE007241CE /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		86430A03247723C8006FBE74 /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
 		86430A04247723C8006FBE74 /* RoomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomCell.xib; sourceTree = "<group>"; };
+		864FB596249FF46F009B053D /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		864FB598249FF5B6009B053D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		865C63922496B2CB0068A395 /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
 		865C63942496B36C0068A395 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		865C63962496B5220068A395 /* UsersStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStorageManager.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 				8689A55F244CD7ED0010F41E /* RoomsViewController.swift */,
 				8665A430244CDDB500009E08 /* NewRoomViewController.swift */,
 				868E1F46249EB89A0073B5E9 /* RoomEnteringViewController.swift */,
+				864FB596249FF46F009B053D /* RoomViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -91,6 +96,7 @@
 				8689A567244CD7F20010F41E /* Assets.xcassets */,
 				8689A569244CD7F20010F41E /* LaunchScreen.storyboard */,
 				8689A564244CD7ED0010F41E /* FilmsVoting.xcdatamodeld */,
+				864FB598249FF5B6009B053D /* UIViewControllerExtension.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -241,8 +247,10 @@
 				8665A431244CDDB500009E08 /* NewRoomViewController.swift in Sources */,
 				865C63932496B2CB0068A395 /* UserObject.swift in Sources */,
 				8689A560244CD7ED0010F41E /* RoomsViewController.swift in Sources */,
+				864FB597249FF46F009B053D /* RoomViewController.swift in Sources */,
 				869AB4452476CF9A00BCC1DD /* RoomsService.swift in Sources */,
 				868AC77D249BF02400B7D860 /* LogInViewController.swift in Sources */,
+				864FB599249FF5B6009B053D /* UIViewControllerExtension.swift in Sources */,
 				863CABA524524FAF007241CE /* Room.swift in Sources */,
 				86A119DD2496B01200093121 /* UserAuthorization.swift in Sources */,
 				8689A55C244CD7ED0010F41E /* AppDelegate.swift in Sources */,

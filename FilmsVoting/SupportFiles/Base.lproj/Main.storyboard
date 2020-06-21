@@ -140,6 +140,21 @@
             </objects>
             <point key="canvasLocation" x="1008.6956521739131" y="101.78571428571428"/>
         </scene>
+        <!--Room View Controller-->
+        <scene sceneID="DOl-eH-fOY">
+            <objects>
+                <viewController storyboardIdentifier="RoomViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9VG-1f-GtV" customClass="RoomViewController" customModule="FilmsVoting" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="esN-nb-jXp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="PeC-VB-hR2"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lHe-vc-O3e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1867" y="103"/>
+        </scene>
         <!--New Room-->
         <scene sceneID="CdO-Uc-Ejh">
             <objects>
