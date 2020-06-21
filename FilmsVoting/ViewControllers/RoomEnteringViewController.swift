@@ -49,6 +49,8 @@ class RoomEnteringViewController: UIViewController {
         roomPasswordTextField.delegate = self
         
         addTargetTo(textField: roomPasswordTextField)
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,7 +92,9 @@ class RoomEnteringViewController: UIViewController {
         
         let allert = UIAlertController(title: "Success", message: "You entered the Room \(notVerifiedRoom!.name) successfully!", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-            //переход дальше c передачей дальше комнаты
+            let destinationViewController = RoomViewController.makeVC(with: room)
+            
+            self?.navigationController?.pushViewController(destinationViewController, animated: true)
         }
         
         allert.addAction(okAction)
