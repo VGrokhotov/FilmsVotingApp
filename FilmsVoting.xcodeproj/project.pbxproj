@@ -33,6 +33,7 @@
 		86C40494249ADA0000D11C42 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40493249ADA0000D11C42 /* NewUserViewController.swift */; };
 		86C40496249AEB2100D11C42 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C40495249AEB2100D11C42 /* UsersService.swift */; };
 		86DCCD3E24A113CB00E7C2B6 /* OptionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DCCD3D24A113CB00E7C2B6 /* OptionsService.swift */; };
+		86DCCD4124A11D2800E7C2B6 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DCCD4024A11D2800E7C2B6 /* Option.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		86C40493249ADA0000D11C42 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		86C40495249AEB2100D11C42 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		86DCCD3D24A113CB00E7C2B6 /* OptionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsService.swift; sourceTree = "<group>"; };
+		86DCCD4024A11D2800E7C2B6 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,9 +108,10 @@
 		863CABA324524F96007241CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				86DCCD4224A11E2000E7C2B6 /* Error */,
+				86DCCD3F24A11D0000E7C2B6 /* Option */,
 				865C63992496C2790068A395 /* User */,
 				865C63982496C26B0068A395 /* Room */,
-				866B18DE249CF23600D9E6C3 /* Error.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,6 +176,22 @@
 				86DCCD3D24A113CB00E7C2B6 /* OptionsService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		86DCCD3F24A11D0000E7C2B6 /* Option */ = {
+			isa = PBXGroup;
+			children = (
+				86DCCD4024A11D2800E7C2B6 /* Option.swift */,
+			);
+			path = Option;
+			sourceTree = "<group>";
+		};
+		86DCCD4224A11E2000E7C2B6 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				866B18DE249CF23600D9E6C3 /* Error.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +279,7 @@
 				86C40494249ADA0000D11C42 /* NewUserViewController.swift in Sources */,
 				86C36CBF249AB1A60011916B /* ProfileViewController.swift in Sources */,
 				863CABA124524EF0007241CE /* RoomsSocket.swift in Sources */,
+				86DCCD4124A11D2800E7C2B6 /* Option.swift in Sources */,
 				868E1F47249EB89B0073B5E9 /* RoomEnteringViewController.swift in Sources */,
 				865C63952496B36C0068A395 /* User.swift in Sources */,
 				8689A566244CD7ED0010F41E /* FilmsVoting.xcdatamodeld in Sources */,
