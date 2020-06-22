@@ -16,5 +16,5 @@ struct Option: Codable {
 }
 
 struct OptionSelector: Codable {
-    let roomID: UUID?
+    let roomID: UUID
 }

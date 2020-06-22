@@ -84,6 +84,13 @@ class OptionsService {
     
     func getOptionsByRoomID(roomID: UUID?, errorCompletion: @escaping (String) -> (), completion: @escaping ([Option]) -> ()) {
         
+        guard let roomID = roomID else {
+            DispatchQueue.main.async {
+                errorCompletion("Wrong roomID, please, send the sсreenshot of this message to developer")
+            }
+            return
+        }
+        
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
