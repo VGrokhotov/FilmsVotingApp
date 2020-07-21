@@ -73,7 +73,6 @@ class RoomViewController: UIViewController {
     }
     
     deinit {
-        OptionsSocket.shared.disconnectFromWebSocket()
         removeKeyboardNotification()
     }
     
