@@ -147,13 +147,59 @@
                     <view key="view" contentMode="scaleToFill" id="esN-nb-jXp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cqm-yf-030">
+                                <rect key="frame" x="0.0" y="44" width="414" height="653"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zV2-DW-B60">
+                                <rect key="frame" x="20" y="747" width="374" height="34"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfC-4B-2pO">
+                                <rect key="frame" x="304" y="806" width="90" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="90" id="dpn-yp-9PQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="9VG-1f-GtV" eventType="touchUpInside" id="epN-NQ-0J4"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tqz-yv-6LY">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tqz-yv-6LY" firstAttribute="centerY" secondItem="esN-nb-jXp" secondAttribute="centerY" id="4fH-vi-OVH"/>
+                            <constraint firstItem="hfC-4B-2pO" firstAttribute="top" secondItem="zV2-DW-B60" secondAttribute="bottom" constant="25" id="Dxe-KT-3au"/>
+                            <constraint firstItem="PeC-VB-hR2" firstAttribute="trailing" secondItem="hfC-4B-2pO" secondAttribute="trailing" constant="20" id="EU0-37-Ix5"/>
+                            <constraint firstItem="Cqm-yf-030" firstAttribute="leading" secondItem="PeC-VB-hR2" secondAttribute="leading" id="G6g-mZ-1Dg"/>
+                            <constraint firstItem="Cqm-yf-030" firstAttribute="top" secondItem="PeC-VB-hR2" secondAttribute="top" id="INx-Ae-qLC"/>
+                            <constraint firstItem="tqz-yv-6LY" firstAttribute="centerX" secondItem="esN-nb-jXp" secondAttribute="centerX" id="MAb-wr-l4s"/>
+                            <constraint firstItem="Cqm-yf-030" firstAttribute="trailing" secondItem="PeC-VB-hR2" secondAttribute="trailing" id="WL0-m6-bep"/>
+                            <constraint firstItem="PeC-VB-hR2" firstAttribute="bottom" secondItem="hfC-4B-2pO" secondAttribute="bottom" constant="20" id="b0Z-xn-kD0"/>
+                            <constraint firstItem="zV2-DW-B60" firstAttribute="leading" secondItem="PeC-VB-hR2" secondAttribute="leading" constant="20" id="lV2-cs-UZv"/>
+                            <constraint firstItem="zV2-DW-B60" firstAttribute="top" secondItem="Cqm-yf-030" secondAttribute="bottom" constant="50" id="tOk-rg-YGP"/>
+                            <constraint firstItem="PeC-VB-hR2" firstAttribute="trailing" secondItem="zV2-DW-B60" secondAttribute="trailing" constant="20" id="wiM-8J-dgw"/>
+                            <constraint firstItem="hfC-4B-2pO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PeC-VB-hR2" secondAttribute="leading" constant="20" id="xlC-PJ-ffj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PeC-VB-hR2"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="tqz-yv-6LY" id="wGE-zx-3Cw"/>
+                        <outlet property="addButton" destination="hfC-4B-2pO" id="sEN-Oi-hz4"/>
+                        <outlet property="optionTextField" destination="zV2-DW-B60" id="rJb-o6-lCk"/>
+                        <outlet property="tableView" destination="Cqm-yf-030" id="yYR-0K-bij"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHe-vc-O3e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1867" y="103"/>
+            <point key="canvasLocation" x="1866.6666666666667" y="102.45535714285714"/>
         </scene>
         <!--New Room-->
         <scene sceneID="CdO-Uc-Ejh">

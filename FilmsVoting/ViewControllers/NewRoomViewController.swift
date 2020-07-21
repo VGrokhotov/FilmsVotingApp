@@ -123,24 +123,6 @@ extension NewRoomViewController: UITextFieldDelegate{
     
 }
 
-//MARK: To dismiss keyboard after tapping anywhere else
-
-extension UIViewController
-{
-    func setupToHideKeyboardOnTapOnView() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(UIViewController.dismissKeyboard))
-
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-
 
 //MARK: Show the content above the keyboard
 
