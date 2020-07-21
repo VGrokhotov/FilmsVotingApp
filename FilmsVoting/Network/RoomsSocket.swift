@@ -43,8 +43,9 @@ class RoomsSocket {
         webSocketTask.sendPing { (error) in
             if let error = error {
                 print("Ping failed: \(error)")
+            } else {
+                self.scheduleNextPing()
             }
-            self.scheduleNextPing()
         }
     }
 
