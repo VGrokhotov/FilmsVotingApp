@@ -69,11 +69,6 @@ class RoomViewController: UIViewController {
         
         addTargetTo(textField: optionTextField)
         
-        guard let roomID = room?.id else { return }
-        
-        OptionsSocket.shared.connectToWebSocket(with: roomID) // подключаемся к сокету опций
-        OptionsSocket.shared.ping()
-        
         self.getData() //запускаем получение данных по сокету
     }
     

@@ -94,6 +94,9 @@ class RoomEnteringViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
             let destinationViewController = RoomViewController.makeVC(with: room)
             
+            OptionsSocket.shared.connectToWebSocket(with: room.id!) // подключаемся к сокету опций
+            OptionsSocket.shared.ping()
+            
             self?.navigationController?.pushViewController(destinationViewController, animated: true)
         }
         
