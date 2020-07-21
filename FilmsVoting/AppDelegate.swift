@@ -37,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         RoomsSocket.shared.disconnectFromWebSocket() // отключаемся от вебсокета комнат
-        OptionsSocket.shared.disconnectFromWebSocket()
     }
 
     // MARK: - Core Data stack

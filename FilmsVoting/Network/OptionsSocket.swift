@@ -9,8 +9,8 @@
 import Foundation
 
 class OptionsSocket {
-    public static let shared = OptionsSocket() // создаем Синглтон
-    private init(){}
+
+    init(){}
     
     //"ws://127.0.0.1:8080/options/socket"
     //"ws://filmsvotingv2.herokuapp.com/options/socket"
@@ -43,8 +43,9 @@ class OptionsSocket {
         webSocketTask.sendPing { (error) in
             if let error = error {
                 print("Ping failed: \(error)")
+            } else {
+                self.scheduleNextPing()
             }
-            self.scheduleNextPing()
         }
     }
 

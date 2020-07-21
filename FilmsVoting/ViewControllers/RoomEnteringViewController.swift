@@ -93,10 +93,7 @@ class RoomEnteringViewController: UIViewController {
         let allert = UIAlertController(title: "Success", message: "You entered the Room \(notVerifiedRoom!.name) successfully!", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
             let destinationViewController = RoomViewController.makeVC(with: room)
-            
-            OptionsSocket.shared.connectToWebSocket(with: room.id!) // подключаемся к сокету опций
-            OptionsSocket.shared.ping()
-            
+
             self?.navigationController?.pushViewController(destinationViewController, animated: true)
         }
         
