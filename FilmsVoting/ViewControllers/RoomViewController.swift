@@ -17,7 +17,6 @@ class RoomViewController: UIViewController {
     
     var room: Room?
     var options: [Option] = []
-    let optionsWebSocket = OptionsSocket()
     
     @IBAction func addButtonPressed(_ sender: Any) {
         activityIndicator.startAnimating()
@@ -71,15 +70,14 @@ class RoomViewController: UIViewController {
         addTargetTo(textField: optionTextField)
         
         
-        optionsWebSocket.connectToWebSocket(with: room!.id!) // подключаемся к сокету опций
-        optionsWebSocket.ping()
+        SocketService.shared.connectToOptions(with: room!.id!) // подключаемся к сокету опций
         
         
         self.getData() //запускаем получение данных по сокету
     }
     
     deinit {
-        optionsWebSocket.disconnectFromWebSocket()
+        SocketService.shared.disconnectFromOption()
         removeKeyboardNotification()
     }
     
@@ -102,7 +100,7 @@ class RoomViewController: UIViewController {
     }
     
     private func getData() {
-        optionsWebSocket.receiveData() { [weak self] (option) in
+        SocketService.shared.setOptionCompletion { [weak self] (option) in
             self?.options.append(option)
             self?.tableView.reloadData()
         }

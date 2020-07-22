@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		860752EA24C6E9E700522C51 /* OptionsSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860752E924C6E9E700522C51 /* OptionsSocket.swift */; };
-		863CABA124524EF0007241CE /* RoomsSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863CABA024524EF0007241CE /* RoomsSocket.swift */; };
 		863CABA524524FAF007241CE /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863CABA424524FAE007241CE /* Room.swift */; };
 		86430A05247723C8006FBE74 /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86430A03247723C8006FBE74 /* RoomCell.swift */; };
 		86430A06247723C8006FBE74 /* RoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86430A04247723C8006FBE74 /* RoomCell.xib */; };
@@ -16,6 +14,8 @@
 		8643651624BCED9F00195CBD /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8643651424BCED9F00195CBD /* OptionCell.xib */; };
 		864FB597249FF46F009B053D /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FB596249FF46F009B053D /* RoomViewController.swift */; };
 		864FB599249FF5B6009B053D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FB598249FF5B6009B053D /* UIViewControllerExtension.swift */; };
+		8659232424C8381A004CAE71 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8659232324C8381A004CAE71 /* SocketService.swift */; };
+		8659232624C8498A004CAE71 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8659232524C8498A004CAE71 /* Message.swift */; };
 		865C63932496B2CB0068A395 /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C63922496B2CB0068A395 /* UserObject.swift */; };
 		865C63952496B36C0068A395 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C63942496B36C0068A395 /* User.swift */; };
 		865C63972496B5220068A395 /* UsersStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C63962496B5220068A395 /* UsersStorageManager.swift */; };
@@ -40,8 +40,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		860752E924C6E9E700522C51 /* OptionsSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsSocket.swift; sourceTree = "<group>"; };
-		863CABA024524EF0007241CE /* RoomsSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsSocket.swift; sourceTree = "<group>"; };
 		863CABA424524FAE007241CE /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		86430A03247723C8006FBE74 /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
 		86430A04247723C8006FBE74 /* RoomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomCell.xib; sourceTree = "<group>"; };
@@ -49,6 +47,8 @@
 		8643651424BCED9F00195CBD /* OptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
 		864FB596249FF46F009B053D /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		864FB598249FF5B6009B053D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		8659232324C8381A004CAE71 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
+		8659232524C8498A004CAE71 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		865C63922496B2CB0068A395 /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
 		865C63942496B36C0068A395 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		865C63962496B5220068A395 /* UsersStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStorageManager.swift; sourceTree = "<group>"; };
@@ -114,12 +114,21 @@
 		863CABA324524F96007241CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8659232724C8747F004CAE71 /* Message */,
 				86DCCD4224A11E2000E7C2B6 /* Error */,
 				86DCCD3F24A11D0000E7C2B6 /* Option */,
 				865C63992496C2790068A395 /* User */,
 				865C63982496C26B0068A395 /* Room */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8659232724C8747F004CAE71 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				8659232524C8498A004CAE71 /* Message.swift */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 		865C63982496C26B0068A395 /* Room */ = {
@@ -176,11 +185,10 @@
 		869AB4432476CEFE00BCC1DD /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				863CABA024524EF0007241CE /* RoomsSocket.swift */,
 				869AB4442476CF9A00BCC1DD /* RoomsService.swift */,
 				86C40495249AEB2100D11C42 /* UsersService.swift */,
 				86DCCD3D24A113CB00E7C2B6 /* OptionsService.swift */,
-				860752E924C6E9E700522C51 /* OptionsSocket.swift */,
+				8659232324C8381A004CAE71 /* SocketService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -288,8 +296,6 @@
 				8689A55C244CD7ED0010F41E /* AppDelegate.swift in Sources */,
 				86C40494249ADA0000D11C42 /* NewUserViewController.swift in Sources */,
 				86C36CBF249AB1A60011916B /* ProfileViewController.swift in Sources */,
-				863CABA124524EF0007241CE /* RoomsSocket.swift in Sources */,
-				860752EA24C6E9E700522C51 /* OptionsSocket.swift in Sources */,
 				86DCCD4124A11D2800E7C2B6 /* Option.swift in Sources */,
 				868E1F47249EB89B0073B5E9 /* RoomEnteringViewController.swift in Sources */,
 				865C63952496B36C0068A395 /* User.swift in Sources */,
@@ -297,9 +303,11 @@
 				86DCCD3E24A113CB00E7C2B6 /* OptionsService.swift in Sources */,
 				86C40496249AEB2100D11C42 /* UsersService.swift in Sources */,
 				86430A05247723C8006FBE74 /* RoomCell.swift in Sources */,
+				8659232624C8498A004CAE71 /* Message.swift in Sources */,
 				8643651524BCED9F00195CBD /* OptionCell.swift in Sources */,
 				865C63972496B5220068A395 /* UsersStorageManager.swift in Sources */,
 				866B18DF249CF23600D9E6C3 /* Error.swift in Sources */,
+				8659232424C8381A004CAE71 /* SocketService.swift in Sources */,
 				8689A55E244CD7ED0010F41E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

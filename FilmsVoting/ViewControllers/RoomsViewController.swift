@@ -11,6 +11,7 @@ import UIKit
 class RoomsViewController: UIViewController {
 
     private var rooms: [NotVerifiedRoom] = []
+    private var isRoomWebSocketConnected = false
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var newRoomButton: UIBarButtonItem!
@@ -35,7 +36,8 @@ class RoomsViewController: UIViewController {
     }
     
     deinit {
-        RoomsSocket.shared.disconnectFromWebSocket()
+        isRoomWebSocketConnected = false
+        SocketService.shared.disconnectFromWebSocket()
     }
     
     func checkAuthorization() {
@@ -52,7 +54,8 @@ class RoomsViewController: UIViewController {
         rooms = []
         authorizationAlert()
         
-        RoomsSocket.shared.disconnectFromWebSocket()
+        SocketService.shared.disconnectFromWebSocket()
+        isRoomWebSocketConnected = false
         self.getData() //запускаем получение данных по сокету
     }
     
@@ -71,14 +74,22 @@ class RoomsViewController: UIViewController {
             self?.tableView.reloadData()
         }
         
-        self.getData() //запускаем получение данных по сокету
+        if isRoomWebSocketConnected {
+            isRoomWebSocketConnected = true
+            SocketService.shared.connectToRooms() // подключаемся к сокету комнат
+            SocketService.shared.ping()
+            
+            self.getData() //запускаем получение данных по сокету
+        }
+        
     }
     
     private func getData() {
-        RoomsSocket.shared.receiveData() { [weak self] (room) in
+        SocketService.shared.setRoomCompletion { [weak self] (room) in
             self?.rooms.append(room)
             self?.tableView.reloadData()
         }
+        SocketService.shared.receiveData()
     }
     
     //MARK: Alerts
