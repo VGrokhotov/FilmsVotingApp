@@ -76,9 +76,24 @@ class RoomViewController: UIViewController {
         self.getData() //запускаем получение данных по сокету
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if room?.creatorID == UserAuthorization.shared.user?.id {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: nil, action: nil)
+        }
+        
+        let barItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(returnToRootController(sender:)))
+        navigationItem.setLeftBarButton(barItem, animated: true)
+    }
+    
     deinit {
         SocketService.shared.disconnectFromOption()
         removeKeyboardNotification()
+    }
+    
+    @objc func returnToRootController(sender: UIBarButtonItem) {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     func addTargetTo(textField: UITextField) {
