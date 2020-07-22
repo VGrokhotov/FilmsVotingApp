@@ -74,7 +74,7 @@ class RoomsViewController: UIViewController {
             self?.tableView.reloadData()
         }
         
-        if isRoomWebSocketConnected {
+        if !isRoomWebSocketConnected {
             isRoomWebSocketConnected = true
             SocketService.shared.connectToRooms() // подключаемся к сокету комнат
             SocketService.shared.ping()
