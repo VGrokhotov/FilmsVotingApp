@@ -55,7 +55,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Rooms" id="2Qb-Mg-cnC">
-                        <barButtonItem key="leftBarButtonItem" image="person.fill" catalog="system" id="B5a-f6-1mM">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="person.fill" catalog="system" id="B5a-f6-1mM">
                             <connections>
                                 <segue destination="0B8-N6-wqK" kind="show" id="4vG-TO-YIN"/>
                             </connections>
@@ -200,6 +200,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHe-vc-O3e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1866.6666666666667" y="102.45535714285714"/>
+        </scene>
+        <!--Voting View Controller-->
+        <scene sceneID="TOy-H1-XtP">
+            <objects>
+                <viewController storyboardIdentifier="VotingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zyf-we-Vjn" customClass="VotingViewController" customModule="FilmsVoting" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p2B-ZS-d2a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Svs-ph-v1m"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FeS-DH-5uc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2664" y="102"/>
         </scene>
         <!--New Room-->
         <scene sceneID="CdO-Uc-Ejh">

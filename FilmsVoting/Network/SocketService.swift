@@ -152,7 +152,9 @@ class SocketService {
                                 }
                             }
                         case .startVoting:
-                            self.starVotingCompletion?()
+                            DispatchQueue.main.async { [weak self] in
+                                self?.starVotingCompletion?()
+                            }
                         default:
                             break
                         }

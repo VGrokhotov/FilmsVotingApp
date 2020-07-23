@@ -76,8 +76,12 @@ class RoomViewController: UIViewController {
         self.getData() //запускаем получение данных по сокету
         
         SocketService.shared.setStartVotingCompletion { [weak self] in
-            guard let self = self else { return }
-            let newVS = VotingViewController.makeVC(with: self.options, isCreator: self.isUserCreator)
+            guard
+                let self = self,
+                let roomID = self.room?.id
+            else { return }
+            
+            let newVS = VotingViewController.makeVC(with: self.options, roomID: roomID, isCreator: self.isUserCreator)
             self.navigationController?.pushViewController(newVS, animated: true)
         }
     }
@@ -86,7 +90,7 @@ class RoomViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if isUserCreator {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: nil, action: nil)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(startVoting(sender:)))
         }
         
         let barItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(returnToRootController(sender:)))
@@ -109,11 +113,9 @@ class RoomViewController: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    @objc func startVoting() {
-        
+    @objc func startVoting(sender: UIBarButtonItem) {
         guard let id = room?.id else { return }
         SocketService.shared.startVoting(with: id)
-        
     }
     
     func addTargetTo(textField: UITextField) {
