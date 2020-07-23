@@ -131,7 +131,9 @@ class RoomViewController: UIViewController {
             guard let self = self else { return }
             self.activityIndicator.stopAnimating()
             self.activate(views: self.optionTextField)
-            self.options = options
+            self.options = options.sorted { (first, second) -> Bool in
+                return first.content.compare(second.content, options: .numeric) == .orderedAscending
+            }
             self.tableView.reloadData()
         }
     }
@@ -139,6 +141,9 @@ class RoomViewController: UIViewController {
     private func getData() {
         SocketService.shared.setOptionCompletion { [weak self] (option) in
             self?.options.append(option)
+            self?.options.sort { (first, second) -> Bool in
+                return first.content.compare(second.content, options: .numeric) == .orderedAscending
+            }
             self?.tableView.reloadData()
         }
     }
