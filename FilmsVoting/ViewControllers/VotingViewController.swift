@@ -10,14 +10,33 @@ import UIKit
 
 class VotingViewController: UIViewController {
     
-    private var options: [Option] = []
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var voteButton: UIButton!
+    
+    
+    private var options: [OptionWithSelection] = []
     private var isCreator: Bool = false
     private var roomID: UUID = UUID()
 
+    
+    @IBAction func voteButtonPressed(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        voteButton.layer.cornerRadius = 15
+        voteButton.layer.borderWidth = 0.5
+        voteButton.layer.borderColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
+        voteButton.clipsToBounds = true
+        
         title = "Voting"
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+               
+        tableView.register(UINib(nibName: String(describing: VotingCell.self), bundle: Bundle.main), forCellReuseIdentifier: String(describing: VotingCell.self))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,11 +65,50 @@ class VotingViewController: UIViewController {
         
         guard let newVC = newViewController else { return VotingViewController() }
         
-        newVC.options = options
+        newVC.options = options.map({ (option) -> OptionWithSelection in
+            return option.toOptionWithSelection()
+        })
         newVC.isCreator = isCreator
         newVC.roomID = roomID
 
         return newVC
     }
 
+}
+
+
+//MARK: Tabele
+
+extension VotingViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 72
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        tableView.deselectRow(at: indexPath, animated: true)
+
+    }
+}
+
+extension VotingViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        options.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let option = options[indexPath.row]
+        
+        let identifier = String(describing: VotingCell.self)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? VotingCell else { return VotingCell() }
+        
+        cell.configure(with: option)
+        
+        return cell
+    }
+    
+    
 }

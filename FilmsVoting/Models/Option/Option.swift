@@ -18,3 +18,23 @@ struct Option: Codable {
 struct OptionSelector: Codable {
     let roomID: UUID
 }
+
+struct OptionWithSelection: Codable {
+    let id: UUID?
+    let content: String
+    let roomID: UUID
+    let vote: Int
+    var selected: Bool
+}
+
+extension Option {
+    func toOptionWithSelection() -> OptionWithSelection {
+        return OptionWithSelection(id: id, content: content, roomID: roomID, vote: vote, selected: false)
+    }
+}
+
+extension OptionWithSelection {
+    func toOption() -> Option {
+        return Option(id: id, content: content, roomID: roomID, vote: vote)
+    }
+}

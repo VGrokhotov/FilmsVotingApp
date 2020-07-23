@@ -208,9 +208,50 @@
                     <view key="view" contentMode="scaleToFill" id="p2B-ZS-d2a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zWP-8y-PO0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cki-Gc-eMz">
+                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfR-Yw-V9Y">
+                                        <rect key="frame" x="147" y="10" width="120" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="vdz-3J-hDp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="23"/>
+                                        <state key="normal" title="Vote"/>
+                                        <connections>
+                                            <action selector="voteButtonPressed:" destination="Zyf-we-Vjn" eventType="touchUpInside" id="HSF-8p-gZT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="mfR-Yw-V9Y" firstAttribute="top" secondItem="cki-Gc-eMz" secondAttribute="top" constant="10" id="Aow-fH-aY5"/>
+                                    <constraint firstItem="mfR-Yw-V9Y" firstAttribute="centerX" secondItem="cki-Gc-eMz" secondAttribute="centerX" id="hk5-T6-en3"/>
+                                    <constraint firstAttribute="bottom" secondItem="mfR-Yw-V9Y" secondAttribute="bottom" constant="10" id="usl-jY-aCb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Svs-ph-v1m" firstAttribute="trailing" secondItem="zWP-8y-PO0" secondAttribute="trailing" id="3Nh-a6-6eO"/>
+                            <constraint firstItem="cki-Gc-eMz" firstAttribute="leading" secondItem="Svs-ph-v1m" secondAttribute="leading" id="52A-c2-q5G"/>
+                            <constraint firstItem="zWP-8y-PO0" firstAttribute="leading" secondItem="Svs-ph-v1m" secondAttribute="leading" id="LvQ-1S-ftc"/>
+                            <constraint firstItem="Svs-ph-v1m" firstAttribute="trailing" secondItem="cki-Gc-eMz" secondAttribute="trailing" id="abF-wI-c02"/>
+                            <constraint firstItem="zWP-8y-PO0" firstAttribute="top" secondItem="Svs-ph-v1m" secondAttribute="top" id="ajo-uI-db6"/>
+                            <constraint firstItem="Svs-ph-v1m" firstAttribute="bottom" secondItem="cki-Gc-eMz" secondAttribute="bottom" id="cNE-pA-HGh"/>
+                            <constraint firstItem="cki-Gc-eMz" firstAttribute="top" secondItem="zWP-8y-PO0" secondAttribute="bottom" id="m2y-oJ-lwc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Svs-ph-v1m"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="zWP-8y-PO0" id="EWq-30-bng"/>
+                        <outlet property="voteButton" destination="mfR-Yw-V9Y" id="tfs-eA-bnJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FeS-DH-5uc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

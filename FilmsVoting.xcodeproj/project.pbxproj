@@ -13,6 +13,8 @@
 		8643651524BCED9F00195CBD /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643651324BCED9F00195CBD /* OptionCell.swift */; };
 		8643651624BCED9F00195CBD /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8643651424BCED9F00195CBD /* OptionCell.xib */; };
 		8649470524C97F590018030D /* VotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8649470424C97F590018030D /* VotingViewController.swift */; };
+		8649470824C9BC810018030D /* VotingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8649470624C9BC810018030D /* VotingCell.swift */; };
+		8649470924C9BC810018030D /* VotingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8649470724C9BC810018030D /* VotingCell.xib */; };
 		864FB597249FF46F009B053D /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FB596249FF46F009B053D /* RoomViewController.swift */; };
 		864FB599249FF5B6009B053D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864FB598249FF5B6009B053D /* UIViewControllerExtension.swift */; };
 		8659232424C8381A004CAE71 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8659232324C8381A004CAE71 /* SocketService.swift */; };
@@ -47,6 +49,8 @@
 		8643651324BCED9F00195CBD /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		8643651424BCED9F00195CBD /* OptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
 		8649470424C97F590018030D /* VotingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingViewController.swift; sourceTree = "<group>"; };
+		8649470624C9BC810018030D /* VotingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingCell.swift; sourceTree = "<group>"; };
+		8649470724C9BC810018030D /* VotingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VotingCell.xib; sourceTree = "<group>"; };
 		864FB596249FF46F009B053D /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		864FB598249FF5B6009B053D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		8659232324C8381A004CAE71 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 		863CABA324524F96007241CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8649470A24C9BC890018030D /* Voting */,
 				8659232724C8747F004CAE71 /* Message */,
 				86DCCD4224A11E2000E7C2B6 /* Error */,
 				86DCCD3F24A11D0000E7C2B6 /* Option */,
@@ -124,6 +129,15 @@
 				865C63982496C26B0068A395 /* Room */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8649470A24C9BC890018030D /* Voting */ = {
+			isa = PBXGroup;
+			children = (
+				8649470624C9BC810018030D /* VotingCell.swift */,
+				8649470724C9BC810018030D /* VotingCell.xib */,
+			);
+			path = Voting;
 			sourceTree = "<group>";
 		};
 		8659232724C8747F004CAE71 /* Message */ = {
@@ -274,6 +288,7 @@
 			files = (
 				8689A56B244CD7F20010F41E /* LaunchScreen.storyboard in Resources */,
 				8689A568244CD7F20010F41E /* Assets.xcassets in Resources */,
+				8649470924C9BC810018030D /* VotingCell.xib in Resources */,
 				8643651624BCED9F00195CBD /* OptionCell.xib in Resources */,
 				86430A06247723C8006FBE74 /* RoomCell.xib in Resources */,
 				8689A563244CD7ED0010F41E /* Main.storyboard in Resources */,
@@ -309,6 +324,7 @@
 				86430A05247723C8006FBE74 /* RoomCell.swift in Sources */,
 				8659232624C8498A004CAE71 /* Message.swift in Sources */,
 				8643651524BCED9F00195CBD /* OptionCell.swift in Sources */,
+				8649470824C9BC810018030D /* VotingCell.swift in Sources */,
 				865C63972496B5220068A395 /* UsersStorageManager.swift in Sources */,
 				866B18DF249CF23600D9E6C3 /* Error.swift in Sources */,
 				8659232424C8381A004CAE71 /* SocketService.swift in Sources */,
@@ -459,7 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3DK6S8779M;
 				INFOPLIST_FILE = FilmsVoting/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -478,7 +494,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3DK6S8779M;
 				INFOPLIST_FILE = FilmsVoting/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
