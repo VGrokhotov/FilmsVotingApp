@@ -88,7 +88,19 @@ extension VotingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: true)
-
+        let cell = tableView.cellForRow(at: indexPath) as? VotingCell
+        guard let type = cell?.accessoryType else { return }
+        
+        switch type {
+        case .checkmark:
+            cell?.accessoryType = .none
+            options[indexPath.row].selected = false
+        case .none:
+            cell?.accessoryType = .checkmark
+            options[indexPath.row].selected = true
+        default:
+            break
+        }
     }
 }
 

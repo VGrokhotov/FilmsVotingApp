@@ -17,6 +17,8 @@ class VotingCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        accessoryType = .none
+        
         let backgroundView = UIView()
         backgroundView.backgroundColor = bgColor
         self.selectedBackgroundView = backgroundView
@@ -25,15 +27,6 @@ class VotingCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        if selected {
-            if option.selected {
-                backgroundColor = UIColor.white
-                option.selected = false
-            } else {
-                backgroundColor = bgColor
-                option.selected = true
-            }
-        }
     }
     
     
@@ -46,7 +39,11 @@ extension VotingCell: ConfigurableView {
     func configure(with model: OptionWithSelection) {
         option = model
         contentLabel.text = model.content
-        
+        if option.selected {
+            accessoryType = .checkmark
+        } else {
+            accessoryType = .none
+        }
     }
     
 }
