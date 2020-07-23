@@ -14,7 +14,7 @@ class SocketService {
     
     private var optionCompletion: ((Option) -> Void)?
     private var roomCompletion: ((NotVerifiedRoom) -> Void)?
-    private var voteCompletion: (() -> Void)?
+    private var starVotingCompletion: (() -> Void)?
     
     func setOptionCompletion(completion: @escaping (Option) -> Void ) {
         optionCompletion = completion
@@ -22,6 +22,10 @@ class SocketService {
     
     func setRoomCompletion(completion: @escaping (NotVerifiedRoom) -> Void ) {
         roomCompletion = completion
+    }
+    
+    func setStartVotingCompletion(completion: @escaping () -> Void ) {
+        starVotingCompletion = completion
     }
     
     //"ws://127.0.0.1:8080/socket"
@@ -82,6 +86,20 @@ class SocketService {
         }
     }
     
+    public func startVoting(with roomID: UUID) {
+        
+        guard let content = roomID.uuidString.data(using: .utf8) else { return }
+        
+        let message = Message(type: .startVoting, content: content)
+        if let messageData = try? JSONEncoder().encode(message) {
+            webSocketTask.send(URLSessionWebSocketTask.Message.data(messageData)) { (error) in
+                if let error = error {
+                    print("cannot send message because of \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
     func ping() {
         webSocketTask.sendPing { (error) in
             if let error = error {
@@ -133,6 +151,8 @@ class SocketService {
                                     self?.roomCompletion?(room)
                                 }
                             }
+                        case .startVoting:
+                            self.starVotingCompletion?()
                         default:
                             break
                         }

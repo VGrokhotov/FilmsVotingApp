@@ -69,17 +69,23 @@ class RoomViewController: UIViewController {
         
         addTargetTo(textField: optionTextField)
         
+        guard let id = room?.id else { return }
         
-        SocketService.shared.connectToOptions(with: room!.id!) // подключаемся к сокету опций
-        
+        SocketService.shared.connectToOptions(with: id) // подключаемся к сокету опций
         
         self.getData() //запускаем получение данных по сокету
+        
+        SocketService.shared.setStartVotingCompletion { [weak self] in
+            guard let self = self else { return }
+            let newVS = VotingViewController.makeVC(with: self.options, isCreator: self.isUserCreator)
+            self.navigationController?.pushViewController(newVS, animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if room?.creatorID == UserAuthorization.shared.user?.id {
+        if isUserCreator {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: nil, action: nil)
         }
         
@@ -92,8 +98,22 @@ class RoomViewController: UIViewController {
         removeKeyboardNotification()
     }
     
+    //MARK: Selectors
+    
+    var isUserCreator: Bool {
+        return room?.creatorID == UserAuthorization.shared.user?.id
+    }
+    
     @objc func returnToRootController(sender: UIBarButtonItem) {
+        SocketService.shared.disconnectFromOption()
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @objc func startVoting() {
+        
+        guard let id = room?.id else { return }
+        SocketService.shared.startVoting(with: id)
+        
     }
     
     func addTargetTo(textField: UITextField) {
