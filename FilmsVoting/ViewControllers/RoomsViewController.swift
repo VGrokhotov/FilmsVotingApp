@@ -70,7 +70,9 @@ class RoomsViewController: UIViewController {
             self?.badURLAlert(message: message)
         }) { [ weak self ] (rooms) in
             self?.activityIndicator.stopAnimating()
-            self?.rooms = rooms
+            self?.rooms = rooms.sorted { (first, second) -> Bool in
+                return first.name.compare(second.name, options: .numeric) == .orderedAscending
+            }
             self?.tableView.reloadData()
         }
         
@@ -87,6 +89,9 @@ class RoomsViewController: UIViewController {
     private func getData() {
         SocketService.shared.setRoomCompletion { [weak self] (room) in
             self?.rooms.append(room)
+            self?.rooms.sort { (first, second) -> Bool in
+                return first.name.compare(second.name, options: .numeric) == .orderedAscending
+            }
             self?.tableView.reloadData()
         }
         SocketService.shared.receiveData()
