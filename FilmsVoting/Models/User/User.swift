@@ -19,3 +19,7 @@ struct AuthorizationUser: Codable {
     let login: String
     let password: String
 }
+
+struct UserID: Codable {
+    let id: UUID
+}
