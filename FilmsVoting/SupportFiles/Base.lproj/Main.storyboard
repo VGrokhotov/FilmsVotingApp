@@ -257,6 +257,43 @@
             </objects>
             <point key="canvasLocation" x="2664" y="102"/>
         </scene>
+        <!--Result View Controller-->
+        <scene sceneID="RSK-TG-dZu">
+            <objects>
+                <viewController storyboardIdentifier="ResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wkH-00-txL" customClass="ResultViewController" customModule="FilmsVoting" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K9t-wM-DV0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Fy-4V-KDQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iNp-jh-0wj">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sSJ-yb-G9x" firstAttribute="trailing" secondItem="8Fy-4V-KDQ" secondAttribute="trailing" id="5Nx-eV-T8A"/>
+                            <constraint firstItem="8Fy-4V-KDQ" firstAttribute="top" secondItem="sSJ-yb-G9x" secondAttribute="top" id="AGi-yw-27l"/>
+                            <constraint firstItem="8Fy-4V-KDQ" firstAttribute="leading" secondItem="sSJ-yb-G9x" secondAttribute="leading" id="DTD-AB-zI4"/>
+                            <constraint firstItem="iNp-jh-0wj" firstAttribute="centerY" secondItem="K9t-wM-DV0" secondAttribute="centerY" id="TSK-KT-fSW"/>
+                            <constraint firstItem="sSJ-yb-G9x" firstAttribute="bottom" secondItem="8Fy-4V-KDQ" secondAttribute="bottom" id="eeF-U2-gBe"/>
+                            <constraint firstItem="iNp-jh-0wj" firstAttribute="centerX" secondItem="K9t-wM-DV0" secondAttribute="centerX" id="wa5-hP-gV4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sSJ-yb-G9x"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="iNp-jh-0wj" id="kna-Jf-3DI"/>
+                        <outlet property="tableView" destination="8Fy-4V-KDQ" id="wUe-sm-xIB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BKU-5V-ZXG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3447.826086956522" y="101.78571428571428"/>
+        </scene>
         <!--New Room-->
         <scene sceneID="CdO-Uc-Ejh">
             <objects>

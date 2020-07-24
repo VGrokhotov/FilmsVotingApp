@@ -110,6 +110,32 @@ class SocketService {
         }
     }
     
+    public func endVoting(with roomID: UUID) {
+        guard let content = roomID.uuidString.data(using: .utf8) else { return }
+        
+        let message = Message(type: .endVoting, content: content)
+        if let messageData = try? JSONEncoder().encode(message) {
+            webSocketTask.send(URLSessionWebSocketTask.Message.data(messageData)) { (error) in
+                if let error = error {
+                    print("cannot send message because of \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    public func exit(with roomID: UUID) {
+        guard let content = roomID.uuidString.data(using: .utf8) else { return }
+        
+        let message = Message(type: .exit, content: content)
+        if let messageData = try? JSONEncoder().encode(message) {
+            webSocketTask.send(URLSessionWebSocketTask.Message.data(messageData)) { (error) in
+                if let error = error {
+                    print("cannot send message because of \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
     func ping() {
         webSocketTask.sendPing { (error) in
             if let error = error {

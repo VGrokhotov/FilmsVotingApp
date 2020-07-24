@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		863CABA524524FAF007241CE /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863CABA424524FAE007241CE /* Room.swift */; };
+		86403DDE24CAF33700549B81 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86403DDD24CAF33700549B81 /* ResultViewController.swift */; };
+		86403DE524CAFA7A00549B81 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86403DE324CAFA7A00549B81 /* ResultCell.swift */; };
+		86403DE624CAFA7A00549B81 /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86403DE424CAFA7A00549B81 /* ResultCell.xib */; };
 		86430A05247723C8006FBE74 /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86430A03247723C8006FBE74 /* RoomCell.swift */; };
 		86430A06247723C8006FBE74 /* RoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86430A04247723C8006FBE74 /* RoomCell.xib */; };
 		8643651524BCED9F00195CBD /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643651324BCED9F00195CBD /* OptionCell.swift */; };
@@ -44,6 +47,9 @@
 
 /* Begin PBXFileReference section */
 		863CABA424524FAE007241CE /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		86403DDD24CAF33700549B81 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		86403DE324CAFA7A00549B81 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
+		86403DE424CAFA7A00549B81 /* ResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
 		86430A03247723C8006FBE74 /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
 		86430A04247723C8006FBE74 /* RoomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomCell.xib; sourceTree = "<group>"; };
 		8643651324BCED9F00195CBD /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 				868E1F46249EB89A0073B5E9 /* RoomEnteringViewController.swift */,
 				864FB596249FF46F009B053D /* RoomViewController.swift */,
 				8649470424C97F590018030D /* VotingViewController.swift */,
+				86403DDD24CAF33700549B81 /* ResultViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -121,6 +128,7 @@
 		863CABA324524F96007241CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				86403DE724CAFA8200549B81 /* Result */,
 				8649470A24C9BC890018030D /* Voting */,
 				8659232724C8747F004CAE71 /* Message */,
 				86DCCD4224A11E2000E7C2B6 /* Error */,
@@ -129,6 +137,15 @@
 				865C63982496C26B0068A395 /* Room */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		86403DE724CAFA8200549B81 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				86403DE324CAFA7A00549B81 /* ResultCell.swift */,
+				86403DE424CAFA7A00549B81 /* ResultCell.xib */,
+			);
+			path = Result;
 			sourceTree = "<group>";
 		};
 		8649470A24C9BC890018030D /* Voting */ = {
@@ -288,6 +305,7 @@
 			files = (
 				8689A56B244CD7F20010F41E /* LaunchScreen.storyboard in Resources */,
 				8689A568244CD7F20010F41E /* Assets.xcassets in Resources */,
+				86403DE624CAFA7A00549B81 /* ResultCell.xib in Resources */,
 				8649470924C9BC810018030D /* VotingCell.xib in Resources */,
 				8643651624BCED9F00195CBD /* OptionCell.xib in Resources */,
 				86430A06247723C8006FBE74 /* RoomCell.xib in Resources */,
@@ -320,11 +338,13 @@
 				865C63952496B36C0068A395 /* User.swift in Sources */,
 				8689A566244CD7ED0010F41E /* FilmsVoting.xcdatamodeld in Sources */,
 				86DCCD3E24A113CB00E7C2B6 /* OptionsService.swift in Sources */,
+				86403DE524CAFA7A00549B81 /* ResultCell.swift in Sources */,
 				86C40496249AEB2100D11C42 /* UsersService.swift in Sources */,
 				86430A05247723C8006FBE74 /* RoomCell.swift in Sources */,
 				8659232624C8498A004CAE71 /* Message.swift in Sources */,
 				8643651524BCED9F00195CBD /* OptionCell.swift in Sources */,
 				8649470824C9BC810018030D /* VotingCell.swift in Sources */,
+				86403DDE24CAF33700549B81 /* ResultViewController.swift in Sources */,
 				865C63972496B5220068A395 /* UsersStorageManager.swift in Sources */,
 				866B18DF249CF23600D9E6C3 /* Error.swift in Sources */,
 				8659232424C8381A004CAE71 /* SocketService.swift in Sources */,

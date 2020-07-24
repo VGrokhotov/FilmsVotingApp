@@ -18,6 +18,7 @@ class RoomsService {
     private let scheme = "https"
     private let host = "filmsvotingv2.herokuapp.com"
     private let roomIDPath = "/rooms/id"
+    private let roomPath = "/rooms"
     
     //MARK: GET
     
@@ -54,15 +55,8 @@ class RoomsService {
         }
     }
     
-    func deleteRoom(withID: String) {
-        //
-    }
-    
-    func updateRoom(withID: String) {
-        //
-    }
-    
     //MARK: POST
+    
     func create(room: Room, errorCompletion: @escaping (String) -> (),  completion: @escaping () -> ()) {
 
         if  let url = URL(string: urlString) {
@@ -172,6 +166,50 @@ class RoomsService {
                 errorCompletion("Wrong URL of Rooms source, please, send the sсreenshot of this message to developer")
             }
         }
+    }
+    
+    
+    //MARK: Delete
+    
+    func deleteRoom(with id: UUID) {
+        
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = roomPath
+        
+        if  let url = components.url {
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "DELETE"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let roomID = RoomID(id: id)
+            
+            guard let httpBody = try? JSONEncoder().encode(roomID)  else {
+                print("Wrong structure of RoomID, please, send the sсreenshot of this message to developer")
+                return
+            }
+            
+            request.httpBody = httpBody
+            let session = URLSession.shared
+            
+            let task = session.dataTask(with: request) { (data, response, error) in
+                
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    print("Deleted \(roomID)")
+                }
+            }
+            task.resume()
+            
+            
+            
+        } else {
+            print("Wrong URL of Room source, please, send the sсreenshot of this message to developer")
+        }
+        
     }
 
 }

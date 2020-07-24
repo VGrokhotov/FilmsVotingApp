@@ -59,4 +59,18 @@ extension UIViewController {
         view.endEditing(true)
     }
     
+    
+    //MARK: Alerts
+    
+    func exitAlert(){
+        
+        let allert = UIAlertController(title: "Admin closed voting", message: "You will be returned to the main screen", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] (action) in
+            self?.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        allert.addAction(okAction)
+        present(allert, animated: true)
+    }
+    
 }

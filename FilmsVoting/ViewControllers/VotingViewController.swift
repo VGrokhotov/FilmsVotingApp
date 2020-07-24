@@ -30,6 +30,11 @@ class VotingViewController: UIViewController {
                 }
             }
         }
+        if !isCreator {
+            let newVC = ResultViewController.makeVC(isCreator: isCreator, roomID: roomID)
+            
+            navigationController?.pushViewController(newVC, animated: true)
+        }
     }
     
     override func viewDidLoad() {
@@ -58,15 +63,28 @@ class VotingViewController: UIViewController {
         
         let barItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(returnToRootController(sender:)))
         navigationItem.setLeftBarButton(barItem, animated: true)
+        
+    }
+    
+    deinit {
+        SocketService.shared.disconnectFromOption()
     }
     
     @objc func returnToRootController(sender: UIBarButtonItem) {
+        if isCreator {
+            RoomsService.shared.deleteRoom(with: roomID)
+            SocketService.shared.exit(with: roomID)
+        }
         SocketService.shared.disconnectFromOption()
         navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func endVoting(sender: UIBarButtonItem) {
-        //SocketService.shared.endVoting(with: roomID)
+        let newVC = ResultViewController.makeVC(isCreator: isCreator, roomID: roomID)
+            
+        navigationController?.pushViewController(newVC, animated: true)
+        
+        SocketService.shared.endVoting(with: roomID)
     }
     
     static func makeVC(with options: [Option], roomID: UUID, isCreator: Bool ) -> VotingViewController {

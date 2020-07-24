@@ -37,6 +37,10 @@ class RoomViewController: UIViewController {
             self?.activityIndicator.stopAnimating()
             self?.successAlert()
         }
+        
+        SocketService.shared.setExitCompletion { [weak self] in
+            self?.exitAlert()
+        }
     }
     
     override func viewDidLoad() {
@@ -95,6 +99,10 @@ class RoomViewController: UIViewController {
         
         let barItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(returnToRootController(sender:)))
         navigationItem.setLeftBarButton(barItem, animated: true)
+        
+        SocketService.shared.setExitCompletion { [weak self] in
+            self?.exitAlert()
+        }
     }
     
     deinit {
@@ -109,6 +117,12 @@ class RoomViewController: UIViewController {
     }
     
     @objc func returnToRootController(sender: UIBarButtonItem) {
+        if isUserCreator {
+            if let id = room?.id {
+                RoomsService.shared.deleteRoom(with: id)
+                SocketService.shared.exit(with: id)
+            }
+        }
         SocketService.shared.disconnectFromOption()
         navigationController?.popToRootViewController(animated: true)
     }
