@@ -21,4 +21,6 @@ enum MessageType: String, Codable {
     case disconnect = "disconnect"
     case disconnectFromOption = "disconnectFromOption"
     case startVoting = "startVoting"
+    case endVoting = "endVoting"
+    case exit = "exit"
 }

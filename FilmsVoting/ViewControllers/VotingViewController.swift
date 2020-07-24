@@ -20,6 +20,16 @@ class VotingViewController: UIViewController {
 
     
     @IBAction func voteButtonPressed(_ sender: Any) {
+        disable(views: voteButton)
+        for option in options {
+            if option.selected {
+                if let id = option.id {
+                    OptionsService.shared.updateOption(with: id) { [weak self] (str) in
+                        self?.badAlert(message: str)
+                    }
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -72,6 +82,17 @@ class VotingViewController: UIViewController {
         newVC.roomID = roomID
 
         return newVC
+    }
+    
+    //MARK: Alerts
+    
+    func badAlert(message: String){
+        
+        let allert = UIAlertController(title: "Error occurred", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        
+        allert.addAction(okAction)
+        present(allert, animated: true)
     }
 
 }

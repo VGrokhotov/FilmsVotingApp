@@ -38,3 +38,7 @@ extension OptionWithSelection {
         return Option(id: id, content: content, roomID: roomID, vote: vote)
     }
 }
+
+struct OptionID: Codable {
+    let id: UUID
+}
