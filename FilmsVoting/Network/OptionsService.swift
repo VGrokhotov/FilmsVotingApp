@@ -18,16 +18,56 @@ class OptionsService {
     private let optionsPath = "/options"
     private let selectorPath = "/roomid"
     
+    //MARK: PUT
     
-    func deleteOption(withID: String) {
-        //
+    func updateOption(with id: UUID, errorCompletion: @escaping (String) -> ()) {
+        
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = optionsPath
+
+        if  let url = components.url {
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "PUT"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let optionID = OptionID(id: id)
+            
+            guard let httpBody = try? JSONEncoder().encode(optionID)  else {
+                DispatchQueue.main.async {
+                    errorCompletion("Wrong structure of OptionID, please, send the sсreenshot of this message to developer")
+                }
+                return
+            }
+            
+            request.httpBody = httpBody
+            let session = URLSession.shared
+            
+            let task = session.dataTask(with: request) { (data, response, error) in
+                
+                if let error = error {
+                    DispatchQueue.main.async {
+                        errorCompletion(error.localizedDescription)
+                    }
+                } else {
+                    print("Voted for \(optionID)")
+                }
+            }
+            task.resume()
+            
+        } else {
+            DispatchQueue.main.async {
+                errorCompletion("Wrong URL of Option source, please, send the sсreenshot of this message to developer")
+            }
+        }
     }
     
-    func updateOption(withID: String) {
-        //
-    }
     
     //MARK: POST
+    
+    
     func create(option: Option, errorCompletion: @escaping (String) -> (),  completion: @escaping () -> ()) {
         
         var components = URLComponents()
@@ -150,6 +190,56 @@ class OptionsService {
                 errorCompletion("Wrong URL of Option source, please, send the sсreenshot of this message to developer")
             }
         }
+    }
+    
+    //MARK: Delete
+    
+    func deleteOption(with id: UUID, errorCompletion: @escaping (String) -> ()) {
+        
+        
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = optionsPath
+        
+        if  let url = components.url {
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "DELETE"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let optionID = OptionID(id: id)
+            
+            guard let httpBody = try? JSONEncoder().encode(optionID)  else {
+                DispatchQueue.main.async {
+                    errorCompletion("Wrong structure of OptionID, please, send the sсreenshot of this message to developer")
+                }
+                return
+            }
+            
+            request.httpBody = httpBody
+            let session = URLSession.shared
+            
+            let task = session.dataTask(with: request) { (data, response, error) in
+                
+                if let error = error {
+                    DispatchQueue.main.async {
+                        errorCompletion(error.localizedDescription)
+                    }
+                } else {
+                    print("Deleted \(optionID)")
+                }
+            }
+            task.resume()
+            
+            
+            
+        } else {
+            DispatchQueue.main.async {
+                errorCompletion("Wrong URL of Option source, please, send the sсreenshot of this message to developer")
+            }
+        }
+        
     }
 
 }
