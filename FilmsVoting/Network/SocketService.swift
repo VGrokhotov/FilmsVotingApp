@@ -17,6 +17,7 @@ class SocketService {
     private var starVotingCompletion: (() -> Void)?
     private var endVotingCompletion: (() -> Void)?
     private var exitCompletion: (() -> Void)?
+    private var deletedRoomCompletion: (() -> Void)?
     
     func setOptionCompletion(completion: @escaping (Option) -> Void ) {
         optionCompletion = completion
@@ -36,6 +37,10 @@ class SocketService {
     
     func setExitCompletion(completion: @escaping () -> Void ) {
         exitCompletion = completion
+    }
+    
+    func setDeletedRoomCompletion(completion: @escaping () -> Void ) {
+        deletedRoomCompletion = completion
     }
     
     //"ws://127.0.0.1:8080/socket"
@@ -198,6 +203,10 @@ class SocketService {
                         case .exit:
                             DispatchQueue.main.async { [weak self] in
                                 self?.exitCompletion?()
+                            }
+                        case .deletedRoom:
+                            DispatchQueue.main.async { [weak self] in
+                                self?.deletedRoomCompletion?()
                             }
                         default:
                             break

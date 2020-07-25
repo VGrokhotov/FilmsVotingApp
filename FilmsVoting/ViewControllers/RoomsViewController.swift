@@ -27,6 +27,10 @@ class RoomsViewController: UIViewController {
         tableView.register(UINib(nibName: String(describing: RoomCell.self), bundle: Bundle.main), forCellReuseIdentifier: String(describing: RoomCell.self))
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        SocketService.shared.setDeletedRoomCompletion { [weak self] in
+            self?.getRooms()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,25 +60,12 @@ class RoomsViewController: UIViewController {
         
         SocketService.shared.disconnectFromWebSocket()
         isRoomWebSocketConnected = false
-        self.getData() //запускаем получение данных по сокету
+        //self.getData() //запускаем получение данных по сокету
     }
     
     func isAuthorized(){
-        tableView.isHidden = false
-        newRoomButton.isEnabled = true
         
-        activityIndicator.startAnimating()
-        
-        RoomsService.shared.getRooms(errorCompletion: { [ weak self] (message) in
-            self?.activityIndicator.stopAnimating()
-            self?.badURLAlert(message: message)
-        }) { [ weak self ] (rooms) in
-            self?.activityIndicator.stopAnimating()
-            self?.rooms = rooms.sorted { (first, second) -> Bool in
-                return first.name.compare(second.name, options: .numeric) == .orderedAscending
-            }
-            self?.tableView.reloadData()
-        }
+        getRooms()
         
         if !isRoomWebSocketConnected {
             isRoomWebSocketConnected = true
@@ -97,6 +88,23 @@ class RoomsViewController: UIViewController {
         SocketService.shared.receiveData()
     }
     
+    private func getRooms() {
+        activityIndicator.startAnimating()
+        
+        RoomsService.shared.getRooms(errorCompletion: { [ weak self] (message) in
+            self?.activityIndicator.stopAnimating()
+            self?.badURLAlert(message: message)
+        }) { [ weak self ] (rooms) in
+            self?.activityIndicator.stopAnimating()
+            self?.rooms = rooms.sorted { (first, second) -> Bool in
+                return first.name.compare(second.name, options: .numeric) == .orderedAscending
+            }
+            self?.tableView.isHidden = false
+            self?.newRoomButton.isEnabled = true
+            self?.tableView.reloadData()
+        }
+    }
+    
     //MARK: Alerts
     
     func authorizationAlert(){
@@ -113,14 +121,7 @@ class RoomsViewController: UIViewController {
         
         let allert = UIAlertController(title: "Error occurred", message: message + " Press OK to retry.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-            RoomsService.shared.getRooms(errorCompletion: { [ weak self] (message) in
-                self?.activityIndicator.stopAnimating()
-                self?.badURLAlert(message: message)
-            }) { [ weak self ] (rooms) in
-                self?.activityIndicator.stopAnimating()
-                self?.rooms = rooms
-                self?.tableView.reloadData()
-            }
+            self?.getRooms()
         }
         
         allert.addAction(okAction)
